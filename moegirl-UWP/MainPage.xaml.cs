@@ -26,5 +26,27 @@ namespace moegirl_UWP
         {
             this.InitializeComponent();
         }
+
+        private void nvSample_SelectionChanged(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewSelectionChangedEventArgs args)
+        {
+            if (args.IsSettingsSelected)
+            {
+                //to do
+            }
+            else
+            {
+
+                Microsoft.UI.Xaml.Controls.NavigationViewItem item = args.SelectedItem as Microsoft.UI.Xaml.Controls.NavigationViewItem;
+                switch (item.Tag)
+                {
+                    case "wangye":
+                        ContentFrame.Navigate(typeof(wangye_zhijie.wangye));
+                        break;
+                    case "chitiao":
+                        ContentFrame.Navigate(typeof(chitiao.chitiao_dan));
+                        break;
+                }
+            }
+        }
     }
 }

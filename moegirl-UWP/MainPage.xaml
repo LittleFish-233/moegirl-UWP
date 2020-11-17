@@ -5,10 +5,89 @@
     xmlns:local="using:moegirl_UWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource SystemControlChromeHighAcrylicWindowMediumBrush}">
+    <Page.Resources>
+        <SolidColorBrush x:Key="NavigationViewExpandedPaneBackground" Color="#10893E"/>
+        <SolidColorBrush x:Key="NavigationViewDefaultPaneBackground" Color="#10893E" />
+    </Page.Resources>
 
     <Grid>
+        <Image Source="tupian\1.png" Stretch="UniformToFill"/>
+        <muxc:NavigationView x:Name="nvSample" IsSettingsVisible="False"
+                            Foreground="White" Background="Transparent"
+                             SelectionChanged="nvSample_SelectionChanged">
+            <muxc:NavigationView.MenuItems>
+                <muxc:NavigationViewItem Content="大厅" Tag="dating" Foreground="White">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE10F;"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItemSeparator  Foreground="White"/>
+                <muxc:NavigationViewItem Content="词条检索" Tag="chitiao" Foreground="White">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE1F6;"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem Content="分区"   Tag="fengqu" Foreground="White">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE1CB;"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
 
+                <muxc:NavigationViewItem Content="讨论组" Tag="taolunzhu" Foreground="White">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE781;"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem Content="创作中心" Tag="chuangzuo" Foreground="White">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xF7BB;"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem Content="账户" Tag="zhanghu" Foreground="White">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE187;"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem Content="工具盒" Tag="gongju" Foreground="White">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE8F1;"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItemSeparator Foreground="White"/>
+                <muxc:NavigationViewItem Content="萌娘百科网页版"  Tag="wangye" Foreground="White">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE774;"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItemSeparator Foreground="White"/>
+                <muxc:NavigationViewItem Content="设置" Tag="shezhi" Foreground="White">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE115;"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem Content="用户手册"  Tag="yonghu" Foreground="White">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE82D;"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem Content="关于我们" Tag="guanyu" Foreground="White">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE946;"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+            </muxc:NavigationView.MenuItems>
+            <Frame x:Name="ContentFrame" Margin="0,0,0,0" Background="#00000000">
+                <Frame.ContentTransitions>
+                    <TransitionCollection>
+                        <NavigationThemeTransition  />
+                    </TransitionCollection>
+                </Frame.ContentTransitions>
+            </Frame>
+        </muxc:NavigationView>
+
+      
     </Grid>
 </Page>

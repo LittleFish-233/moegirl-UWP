@@ -5,8 +5,11 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -30,6 +33,7 @@ namespace moegirl_UWP
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            
         }
 
         /// <summary>
@@ -70,7 +74,16 @@ namespace moegirl_UWP
                 }
                 // 确保当前窗口处于活动状态
                 Window.Current.Activate();
+                // Extend acrylic
+                ExtendAcrylicIntoTitleBar();
             }
+        }
+        private void ExtendAcrylicIntoTitleBar()
+        {
+            CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
+            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            titleBar.ButtonBackgroundColor = Colors.Transparent;
+            titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
         }
 
         /// <summary>

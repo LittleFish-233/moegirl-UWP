@@ -1,0 +1,36 @@
+﻿<Page
+    x:Class="moegirl_UWP.wangye_zhijie.wangye"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:moegirl_UWP.wangye_zhijie"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    Background="#00000000">
+
+    <RelativePanel>
+        <CommandBar x:Name="command1"
+            DefaultLabelPosition="Right"
+                    Background="#00000000"
+                    RelativePanel.AlignTopWithPanel="True">
+            <AppBarButton Icon="Home" Label="主页" Click="AppBarButton_Click"  RequestedTheme="Light"/>
+            <AppBarButton x:Name="back" Icon="Back" Label="后退" Click="AppBarButton_Click_1" IsEnabled="False"  RequestedTheme="Light"/>
+            <AppBarButton x:Name="forward" Icon="Forward" Label="前进" Click="AppBarButton_Click_2" IsEnabled="False"  RequestedTheme="Light"/>
+            <AppBarButton Icon="Refresh" Label="刷新" Click="AppBarButton_Click_3"  RequestedTheme="Light"/>
+            <AppBarButton Icon="Share" Label="分享" Click="AppBarButton_Click_4" RequestedTheme="Light" />
+        </CommandBar>
+        <WebView Name="webview1" RelativePanel.Below="command1"
+                 NavigationStarting="webview1_FrameNavigationStarting"
+                 NavigationCompleted="webview1_NavigationCompleted"
+                 NewWindowRequested="webview1_NewWindowRequested"
+                 RelativePanel.AlignRightWithPanel="True"
+                 RelativePanel.AlignLeftWithPanel="True"
+                 RelativePanel.AlignBottomWithPanel="True"/> 
+        <muxc:ProgressBar x:Name="progress1" Visibility="Collapsed"
+             IsIndeterminate="True" ShowPaused="False" ShowError="False" 
+                          RelativePanel.Below="command1"
+                          RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+
+    </RelativePanel>
+</Page>
