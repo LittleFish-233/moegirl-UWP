@@ -48,5 +48,13 @@ namespace moegirl_UWP
                 }
             }
         }
+
+        private void nvSample_BackRequested(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewBackRequestedEventArgs args)
+        {
+            if(ContentFrame.CanGoBack==true)
+            {
+                ContentFrame.GoBack();
+            }
+        }
     }
 }

@@ -36,5 +36,22 @@
                 </TransitionCollection>
             </Frame.ContentTransitions>
         </Frame>
+        <StackPanel RelativePanel.AlignRightWithPanel="True"
+                    RelativePanel.AlignBottomWithPanel="True"
+                    Margin="0,0,50,50">
+            <Button x:Name="button1" CornerRadius="20" Click="button1_Click"
+                         Height="40" Width="40" FontFamily="Segoe MDL2 Assets" Content="&#xE10F;"
+                 Margin="0,10,0,5" Foreground="{ThemeResource SystemAccentColor}"/>
+
+            <Button x:Name="button2" CornerRadius="20" Click="button2_Click"
+                         Height="40" Width="40" FontFamily="Segoe MDL2 Assets" Content="&#xE10E;"
+                 Margin="0,10,0,5" Foreground="{ThemeResource SystemAccentColor}"/>
+            <Button x:Name="button3" CornerRadius="20" Click="button3_Click"
+                         Height="40" Width="40" FontFamily="Segoe MDL2 Assets" Content="&#xF7BB;"
+                Margin="0,10,0,5" Foreground="{ThemeResource SystemAccentColor}"/>
+            <Button x:Name="button4" CornerRadius="20" Click="button4_Click"
+                         Height="40" Width="40" FontFamily="Segoe MDL2 Assets" Content="&#xE72D;"
+                 Margin="0,10,0,5" Foreground="{ThemeResource SystemAccentColor}"/>
+        </StackPanel>
     </RelativePanel>
 </Page>

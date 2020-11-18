@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text.RegularExpressions;
-using System.Threading;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.System;
@@ -20,85 +18,83 @@ using Windows.UI.Xaml.Navigation;
 
 namespace moegirl_UWP.chitiao
 {
-
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class xiangxixinxi : Page
+    public sealed partial class xiangguan : Page
     {
-
         string danqian_lianjie = "";
-        bool shifou_jiazai = true;//是否加载完毕
-        bool shifou_xiugai = true;//是否修改完毕
-        /// <summary>
-        /// 进行修改元素的线程开始时 会添加一个数字 结束时会删除这个数字 如果列表为空 元素修改完成
-        /// </summary>
-        List<int> xiugai_liebiao = new List<int>();
-        /// <summary>
-        /// 计时器
-        /// </summary>
-        private Timer timer;
-        public xiangxixinxi()
+        bool shifou_jiazai = false;
+        bool shifou_xiugai = false;
+        bool shifou_fanghui = false;
+
+        public xiangguan()
         {
             this.InitializeComponent();
             NavigationCacheMode = NavigationCacheMode.Enabled;
             daima.huancun.chitiao.Xianshitishi += Chitiao_Xianshitishi;
-            Loaded += Xiangxixinxi_Loaded;
-        }
-
-        private void Xiangxixinxi_Loaded(object sender, RoutedEventArgs e)
-        {
-            timer = new Timer(timerCallback, null, (int)TimeSpan.FromMilliseconds(100).TotalMilliseconds, Timeout.Infinite);
         }
 
         private void Chitiao_Xianshitishi(string a, int xuhao)
         {
-            switch (xuhao)
+            switch(xuhao)
             {
                 case 5:
-                    if (daima.huancun.chitiao.daohan_duifa.Count > 1)
+                    if(a=="1")
                     {
-                        //复制导航记录
-                        string linshi = daima.huancun.chitiao.daohan_duifa[daima.huancun.chitiao.daohan_duifa.Count - 1];
-                        //删除导航记录
-                        daima.huancun.chitiao.daohan_duifa.RemoveAt(daima.huancun.chitiao.daohan_duifa.Count - 1);
-                        //导航
-                        webview1.Navigate(new Uri(linshi));
+                        shifou_fanghui = true;
+                        houtui_wangye();
                     }
                     break;
             }
         }
 
+        private void App_BackRequested(object sender, Windows.UI.Core.BackRequestedEventArgs e)
+        {
+            
+        }
         protected override void OnNavigatedTo(NavigationEventArgs e)//重写
         {
-            if (shifou_jiazai == true && shifou_xiugai == true)
+            //判断当前显示的内容是否和缓存一致
+            if (danqian_lianjie != daima.huancun.chitiao.danqian_lianjie)
             {
-                //判断当前显示的内容是否和缓存一致
-                if (danqian_lianjie != daima.huancun.chitiao.daohan_duifa[daima.huancun.chitiao.daohan_duifa.Count - 1])
-                {
-                    //开始导航
-                    webview1.Navigate(new Uri(daima.huancun.chitiao.daohan_duifa[daima.huancun.chitiao.daohan_duifa.Count - 1]));
-                }
+
+                //初始化
+                chushihua(daima.huancun.chitiao.danqian_lianjie);
             }
         }
 
-        private void timerCallback(object state)
+        /// <summary>
+        /// 初始化词条 详细信息
+        /// </summary>
+        /// <param name="lianjie"></param>
+        private void chushihua(string lianjie)
         {
-            try
-            {
-                if (xiugai_liebiao.Count == 0)
+            //启动进度条
+            jindutiao(true);
+            IAsyncAction asyncAction = Windows.System.Threading.ThreadPool.RunAsync(
+                (workItem) =>
                 {
-                    jindutiao(false);
-                }
-                else
-                {
-                    jindutiao(true);
-                }
-            }
-            catch
-            {
-                
-            }
+                    //导航到该页面
+                    this.Invoke(() =>
+                    {
+                        //update UI code
+                        webview1.Navigate(new Uri(lianjie));
+                    });
+
+                    //等待加载
+                    dengdai_wangye();
+                    //修改元素
+                    chuli_wangye();
+
+                    this.Invoke(() =>
+                    {
+                        //update UI code
+                        //显示页面
+                        jindutiao(false);
+                    });
+
+                });
         }
 
         /// <summary>
@@ -139,6 +135,7 @@ namespace moegirl_UWP.chitiao
             }
 
         }
+
         /// <summary>
         /// 导航成功后格式化页面
         /// </summary>
@@ -148,16 +145,13 @@ namespace moegirl_UWP.chitiao
             //修改元素
             shifou_xiugai = false;
             jishu = 0;
-            while (shifou_xiugai == false && jishu < 30)
+            while (shifou_xiugai == false && jishu < 50)
             {
                 this.Invoke(async () =>
                 {
                     try
                     {
                         //update UI code 
-                        //获取标题
-                        string biaoti = await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('firstHeading').innerHTML;") });
-                        daima.huancun.chitiao.Kaishitishi(biaoti, 1);
 
                         await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('content').style.margin=0;") });
                         await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('content').style.border = 0; ") });
@@ -171,13 +165,19 @@ namespace moegirl_UWP.chitiao
                         await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('siteSub').style.display='none';") });
                         await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('contentSub').style.display='none';") });
                         await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('flowthread').style.display='none';") });
+                        await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('catlinks').style.display='none';") });
                         await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('content').style.backgroundColor='transparent';") });
-                        //删除拓展链接
 
-                        var shuliang = await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementsByClassName('navbox').length.toString();") });
+                        //删除拓展链接外的内容
+                        var shuliang = await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementsByClassName('mw-parser-output')[1].children.length.toString();") });
                         for (int i = 0; i < int.Parse(shuliang); i++)
                         {
-                            await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementsByClassName('navbox')[" + i + "].style.display='none';") });
+                            await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementsByClassName('mw-parser-output')[1].children[" + i + "].style.display='none';") });
+                        }
+                        shuliang = await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementsByClassName('navbox').length.toString();") });
+                        for (int i = 0; i < int.Parse(shuliang); i++)
+                        {
+                            await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementsByClassName('navbox')[" + i + "].style.display='block';") });
                         }
                         //部分无效 忽略
                         try
@@ -207,22 +207,42 @@ namespace moegirl_UWP.chitiao
                 jishu++;
             }
         }
-
-
         /// <summary>
-        /// 格式化网页 包括等待网页加载
+        /// 向后导航 包含格式化
         /// </summary>
-        private void xiugai_wangye()
+        private void houtui_wangye()
         {
-            //等待加载
-            dengdai_wangye();
-            //修改元素
-            chuli_wangye();
-            //显示成功 不管是否真的成功
-            shifou_jiazai = true;
-            shifou_xiugai = true;
-            //完成
-            xiugai_liebiao.RemoveAt(0);
+            //检查是否可以向后导航
+            if(webview1.CanGoBack==false)
+            {
+                return;
+            }
+            //启动进度条
+            jindutiao(true);
+
+            IAsyncAction asyncAction = Windows.System.Threading.ThreadPool.RunAsync(
+                (workItem) =>
+                {
+                    //返回
+                    this.Invoke(() =>
+                    {
+                        //update UI code
+                        webview1.GoBack();
+                    });
+
+                    //等待加载
+                    dengdai_wangye();
+                    //修改元素
+                    chuli_wangye();
+
+                    this.Invoke(() =>
+                    {
+                        //update UI code
+                        //显示页面
+                        jindutiao(true);
+                    });
+
+                });
         }
 
         public async void Invoke(Action action, Windows.UI.Core.CoreDispatcherPriority Priority = Windows.UI.Core.CoreDispatcherPriority.Normal)
@@ -234,51 +254,43 @@ namespace moegirl_UWP.chitiao
         {
             shifou_jiazai = true;
             danqian_lianjie = args.Uri.AbsoluteUri;
-            //检查是否与上一个导航一致
-            if (daima.huancun.chitiao.daohan_duifa.Count != 0)
-            {
-                if (daima.huancun.chitiao.daohan_duifa[daima.huancun.chitiao.daohan_duifa.Count - 1] != args.Uri.AbsoluteUri)
-                {
-                    daima.huancun.chitiao.daohan_duifa.Add(args.Uri.AbsoluteUri);
-                }
-            }
-            else
-            {
-                daima.huancun.chitiao.daohan_duifa.Add(args.Uri.AbsoluteUri);
-            }
-            
+            //设置返回状态
+            shifou_fanghui = false;
         }
 
         private async void webview1_NavigationStarting(WebView sender, WebViewNavigationStartingEventArgs args)
         {
-            //启动进度条
-            jindutiao(true);
-            xiugai_liebiao.Add(xiugai_liebiao.Count);
-            //检查是否为词条
+            //检查
             if (daima.huancun.panduan_leixing(args.Uri.AbsoluteUri) == 2)
             {
-                //检查是否为内链 不用修改元素
-                string pattern = @"(#cite_note-)";
-                Regex rx = new Regex(pattern);
-                if (rx.IsMatch(args.Uri.AbsoluteUri) == false)
+                if (args.Uri.AbsoluteUri.StartsWith(daima.huancun.chitiao.danqian_lianjie) == false&& args.Uri.AbsoluteUri!=danqian_lianjie)
                 {
-                    //因为已经开始导航 只要修改元素
-                    IAsyncAction asyncAction = Windows.System.Threading.ThreadPool.RunAsync(
-                        (workItem) =>
-                        {
-                            xiugai_wangye();
-                        });
+                    if (shifou_fanghui == true)
+                    {
+                        //进行返回操作 尝试解析
+                        daima.huancun.chitiao.xiayige_lianjie = args.Uri.AbsoluteUri;
+                    }
+                    else
+                    {
+                        //是百科内的网址 尝试解析
+                        daima.huancun.chitiao.xiayige_lianjie = args.Uri.AbsoluteUri;
+                        //取消导航
+                        args.Cancel = true;
+                        //触发事件 
+                        daima.huancun.chitiao.Kaishitishi("跳转", 2);
+                        //向后导航
+                        chushihua(daima.huancun.chitiao.danqian_lianjie);
+
+                    }
                 }
             }
             else//用浏览器打开
             {
+                await Launcher.LaunchUriAsync(new Uri(args.Uri.AbsoluteUri));
                 //取消导航
                 args.Cancel = true;
-                await Launcher.LaunchUriAsync(new Uri(args.Uri.AbsoluteUri));
                 //向后导航
-                webview1.Navigate(new Uri(danqian_lianjie));
-                //完成
-                xiugai_liebiao.RemoveAt(0);
+                chushihua(danqian_lianjie);
             }
         }
     }

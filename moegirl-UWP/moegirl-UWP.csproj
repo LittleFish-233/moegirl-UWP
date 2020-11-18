@@ -122,8 +122,14 @@
     <Compile Include="chitiao\chitiao_dan.xaml.cs">
       <DependentUpon>chitiao_dan.xaml</DependentUpon>
     </Compile>
+    <Compile Include="chitiao\xiangguan.xaml.cs">
+      <DependentUpon>xiangguan.xaml</DependentUpon>
+    </Compile>
     <Compile Include="chitiao\xiangxixinxi.xaml.cs">
       <DependentUpon>xiangxixinxi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="chitiao\zhu_chitiao.xaml.cs">
+      <DependentUpon>zhu_chitiao.xaml</DependentUpon>
     </Compile>
     <Compile Include="daima\Gongju.cs" />
     <Compile Include="daima\huancun.cs" />
@@ -161,7 +167,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="chitiao\xiangguan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="chitiao\xiangxixinxi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="chitiao\zhu_chitiao.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

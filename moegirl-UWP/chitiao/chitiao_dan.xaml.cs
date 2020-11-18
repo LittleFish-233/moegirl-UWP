@@ -25,10 +25,9 @@ namespace moegirl_UWP.chitiao
         public chitiao_dan()
         {
             this.InitializeComponent();
-            NavigationCacheMode = NavigationCacheMode.Required;
+            NavigationCacheMode = NavigationCacheMode.Enabled;
             daima.huancun.chitiao.Xianshitishi += Chitiao_Xianshitishi;
         }
-
         private void Chitiao_Xianshitishi(string a, int xuhao)
         {
             switch (xuhao)
@@ -38,6 +37,12 @@ namespace moegirl_UWP.chitiao
                     break;
                 case 1:
                     textblock1.Text = a;
+                    break;
+                case 2:
+                    pivot1.SelectedIndex = 0;
+                    break;
+                case 4:
+                    daima.huancun.chitiao.Kaishitishi(pivot1.SelectedIndex.ToString(), 5);
                     break;
             }
         }
@@ -49,7 +54,31 @@ namespace moegirl_UWP.chitiao
                 case 0:
                     ContentFrame.Navigate(typeof(xiangxixinxi));
                     break;
+                case 1:
+                    ContentFrame.Navigate(typeof(xiangguan));
+                    break;
             }
+        }
+
+        //主页
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(zhu_chitiao));
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            daima.huancun.chitiao.Kaishitishi("后退", 4);
+        }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

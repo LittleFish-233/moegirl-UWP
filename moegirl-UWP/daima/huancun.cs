@@ -71,14 +71,6 @@ namespace moegirl_UWP.daima
     public class Chitiao
     {
         /// <summary>
-        /// 当前显示的链接
-        /// </summary>
-        public string danqian_lianjie = "https://zh.moegirl.org.cn/%E7%8B%90%E5%A6%96%E5%B0%8F%E7%BA%A2%E5%A8%98#";
-        /// <summary>
-        /// 下一个显示的词条
-        /// </summary>
-        public string xiayige_lianjie = "";
-        /// <summary>
         /// 委托
         /// </summary>
         /// <param name="a">信息</param>
@@ -86,12 +78,21 @@ namespace moegirl_UWP.daima
         public delegate void delegateRun(string a, int xuhao);
         //定义一个事件
         public event delegateRun Xianshitishi;
+        /// <summary>
+        /// 导航堆伐
+        /// </summary>
+        public List<string> daohan_duifa = new List<string>();
 
+
+        public Chitiao()
+        {
+            daohan_duifa.Add("https://zh.moegirl.org.cn/%E7%8B%90%E5%A6%96%E5%B0%8F%E7%BA%A2%E5%A8%98#");
+        }
         /// <summary>
         /// 触发事件
         /// </summary>
         /// <param name="a">信息</param>
-        /// <param name="xuhao">序号 用作匹配 1 跳转 2 传递标题</param>
+        /// <param name="xuhao">序号 用作匹配 1 跳转 2 传递标题 3在其他页面时的跳转 4后退外层 5后退内层</param>
         public void Kaishitishi(string a, int xuhao)
         {
             Xianshitishi?.Invoke(a, xuhao);

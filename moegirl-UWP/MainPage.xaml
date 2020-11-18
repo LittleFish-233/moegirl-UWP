@@ -17,6 +17,8 @@
         <Image Source="tupian\1.png" Stretch="UniformToFill"/>
         <muxc:NavigationView x:Name="nvSample" IsSettingsVisible="False"
                             Foreground="White" Background="Transparent"
+                             IsBackEnabled="True"
+                             BackRequested="nvSample_BackRequested"
                              SelectionChanged="nvSample_SelectionChanged">
             <muxc:NavigationView.MenuItems>
                 <muxc:NavigationViewItem Content="大厅" Tag="dating" Foreground="White">

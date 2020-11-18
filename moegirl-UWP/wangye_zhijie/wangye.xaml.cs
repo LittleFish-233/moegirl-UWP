@@ -26,7 +26,7 @@ namespace moegirl_UWP.wangye_zhijie
         public wangye()
         {
             this.InitializeComponent();
-            NavigationCacheMode = NavigationCacheMode.Required;
+            NavigationCacheMode = NavigationCacheMode.Enabled;
             Loaded += Wangye_Loaded;
         }
 
