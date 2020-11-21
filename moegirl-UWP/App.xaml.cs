@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -33,18 +35,46 @@ namespace moegirl_UWP
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-            
-        }
 
+        }
+        async System.Threading.Tasks.Task<int> chushihuaAsync()
+        {
+            await daima.huancun.ChushihuaAsync();
+            SolidColorBrush brush = null;
+            brush = new SolidColorBrush(daima.huancun.shezhi_Quanju.huoqu_zhuti_yanse());
+            SolidColorBrush brush_white = new SolidColorBrush(Windows.UI.Color.FromArgb(255,255,255,255)); // green
+
+            this.Resources["SystemAccentColor"] = brush;
+            this.Resources["NavigationViewExpandedPaneBackground"] = brush;
+            this.Resources["NavigationViewDefaultPaneBackground"] = brush;
+            this.Resources["RadioButtonOuterEllipseCheckedFill"] = brush;
+            this.Resources["RadioButtonOuterEllipseCheckedFillPressed"] = brush;
+            this.Resources["RadioButtonOuterEllipseCheckedFillPointerOver"] = brush;
+            this.Resources["SliderTrackValueFill"] = brush;
+            this.Resources["SliderThumbBackgroundPressed"] = brush;
+            this.Resources["SliderThumbBackgroundPointerOver"] = brush;
+            this.Resources["SliderThumbBackground"] = brush;
+            this.Resources["SliderTrackValueFillPressed"] = brush;
+            this.Resources["SliderTrackValueFillPointerOver"] = brush;
+
+            this.Resources["ToggleSwitchFillOn"] = brush;
+            this.Resources["ToggleSwitchFillOnPointerOver"] = brush;
+            this.Resources["ToggleSwitchKnobFillOnPressed"] = brush;
+            this.Resources["ToggleSwitchFillOnPressed"] = brush;
+            this.Resources["ToggleSwitchKnobFillOnPointerOver"] = brush_white;
+
+            return 0;
+        }
         /// <summary>
         /// 在应用程序由最终用户正常启动时进行调用。
         /// 将在启动应用程序以打开特定文件等情况下使用。
         /// </summary>
         /// <param name="e">有关启动请求和过程的详细信息。</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
+            await chushihuaAsync();
             Frame rootFrame = Window.Current.Content as Frame;
-
+            
             // 不要在窗口已包含内容时重复应用程序初始化，
             // 只需确保窗口处于活动状态
             if (rootFrame == null)
@@ -109,5 +139,7 @@ namespace moegirl_UWP
             //TODO: 保存应用程序状态并停止任何后台活动
             deferral.Complete();
         }
+
+
     }
 }

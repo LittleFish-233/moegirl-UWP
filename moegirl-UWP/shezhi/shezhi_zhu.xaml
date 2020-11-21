@@ -1,0 +1,232 @@
+﻿<Page
+    x:Class="moegirl_UWP.shezhi.shezhi_zhu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:moegirl_UWP.shezhi"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Transparent">
+    <ScrollViewer>
+        <RelativePanel Margin="0,0,0,100">
+            <TextBlock x:Name="biaoti1" Text="设" Margin="50,20,0,0"
+                           x:Uid="/zhuye/biaoti1"
+                          FontSize="80.22" FontWeight="Bold" Foreground="{ThemeResource SystemAccentColor}" />
+            <TextBlock x:Name="biaoti2" Text="置" FontSize="60.17" RelativePanel.AlignBottomWith="biaoti1"
+                           x:Uid="/zhuye/biaoti2"
+                           RelativePanel.RightOf="biaoti1" FontWeight="Bold"
+                           Foreground="{ThemeResource SystemAccentColor}" Margin="10,0,0,5"/>
+            <RelativePanel x:Name="re2" RelativePanel.Below="biaoti2" 
+                       Margin="0,30,0,0"
+                       RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
+                <TextBlock x:Name="textblock1" FontFamily="Segoe MDL2 Assets" Text="&#xE896;"
+                   FontSize="33" Foreground="{ThemeResource SystemAccentColor}"
+                       Margin="55,5,0,0" />
+                <TextBlock x:Name="textblock2" Text="下载与缓存"
+                   FontSize="30" Foreground="{ThemeResource SystemAccentColor}"
+                       Margin="110,0,0,0" />
+                <TextBlock x:Name="textblock3" Text="分享图片" RequestedTheme="Light"
+                       RelativePanel.Below="textblock1"
+                   FontSize="19"
+                       Margin="60,20,0,0" />
+                <TextBlock x:Name="textblock4" Text="在分享图片时是否同时将图片保存到本地"
+                       RelativePanel.Below="textblock3" RequestedTheme="Light"
+                   FontSize="13"
+                       Margin="60,12,0,0" />
+                <ToggleSwitch x:Name="toggle1" RelativePanel.Below="textblock4" Margin="60,0,0,0"
+                              Toggled="toggle1_Toggled"
+                 OffContent="不保存" OnContent="保存" IsOn="True" RequestedTheme="Light"/>
+                <TextBlock x:Name="textblock5" Text="将图片保存到的位置"
+                       RelativePanel.Below="toggle1" RequestedTheme="Light"
+                   FontSize="13"
+                       Margin="60,12,0,0" />
+                <TextBox x:Name="textbox1" Width="200" BorderBrush="{ThemeResource SystemAccentColor}" IsReadOnly="True"
+                     RelativePanel.Below="textblock5" RequestedTheme="Light"
+                     Margin="60,5,0,0"/>
+                <Button x:Name="button1" RelativePanel.Below="textblock5" Foreground="{ThemeResource SystemAccentColor}"
+                    FontFamily="Segoe MDL2 Assets" Content="&#xED25;" Click="button1_Click"
+                    RelativePanel.RightOf="textbox1" Height="30" Width="35"
+                    Margin="15,5,0,0"/>
+                <TextBlock x:Name="textblock6" Text="文件缓存"
+                       RelativePanel.Below="textbox1" RequestedTheme="Light"
+                   FontSize="19"
+                       Margin="60,20,0,0" />
+                <TextBlock x:Name="textblock7" Text="使用的空间：32MB/3.56GB"
+                       RelativePanel.Below="textblock6" RequestedTheme="Light"
+                   FontSize="13"
+                       Margin="60,12,0,0" />
+                <muxc:ProgressBar x:Name="progress1" Height="15" Width="200"
+                              RelativePanel.Below="textblock7" Foreground="{ThemeResource SystemAccentColor}"
+                              Margin="60,5,0,0"/>
+                <Button x:Name="button2" RelativePanel.Below="textblock6" Foreground="{ThemeResource SystemAccentColor}"
+                    FontFamily="Segoe MDL2 Assets" Content="&#xE72D;" Click="button2_Click"
+                    RelativePanel.RightOf="progress1" Height="30" Width="35"
+                    Margin="15,20,0,0"/>
+                <TextBlock x:Name="textblock8" Text="最大文件缓存空间容量，可能不需要一个过大的值也能正常使用"
+                       RelativePanel.Below="progress1" TextWrapping="Wrap"
+                       FontSize="13" RequestedTheme="Light"
+                       Margin="60,12,0,0"/>
+                <Slider x:Name="slider1" Width="200" Minimum="10" Maximum="10240" StepFrequency="10"
+                   SmallChange="10" LargeChange="100" ValueChanged="slider1_ValueChanged"
+                    RelativePanel.Below="textblock8"
+                    Margin="60,5,0,0"/>
+                <TextBlock x:Name="textblock9" Text="800MB" RequestedTheme="Light"
+                       RelativePanel.Below="textblock8" RelativePanel.AlignVerticalCenterWith="slider1" RelativePanel.RightOf="slider1"
+                       TextWrapping="Wrap"
+                       FontSize="13"
+                       Margin="20,0,0,0"/>
+                <TextBlock x:Name="textblock10" Text="缓存清理选项" RequestedTheme="Light"
+                       RelativePanel.Below="slider1" TextWrapping="Wrap"
+                       FontSize="13"
+                       Margin="60,12,0,0"/>
+                <ComboBox  x:Name="combobox1" RelativePanel.Below="textblock10"
+                       Margin="60,8,0,0" RequestedTheme="Light" SelectionChanged="combobox1_SelectionChanged"
+                PlaceholderText="选择缓存清理方式" Width="200">
+                    <x:String>启动时清理</x:String>
+                    <x:String>达到上限时清理</x:String>
+                    <x:String>永远不清理缓存</x:String>
+                </ComboBox>
+                <Button x:Name="button3" RelativePanel.Below="combobox1" Foreground="{ThemeResource SystemAccentColor}"
+                    Content="立即清理缓存" Click="button3_Click"
+                    Height="30"
+                    Margin="60,12,0,0"/>
+            </RelativePanel>
+            <RelativePanel x:Name="re3" RelativePanel.Below="re2"
+                       Margin="0,30,0,0"
+                       RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
+                <TextBlock x:Name="textblock11" FontFamily="Segoe MDL2 Assets" Text="&#xE771;"
+                   FontSize="33" Foreground="{ThemeResource SystemAccentColor}"
+                       Margin="55,5,0,0" />
+                <TextBlock x:Name="textblock12" Text="个性化"
+                   FontSize="30" Foreground="{ThemeResource SystemAccentColor}"
+                       Margin="110,0,0,0" />
+                <TextBlock x:Name="textblock13" Text="主题" RequestedTheme="Light"
+                       RelativePanel.Below="textblock12"
+                   FontSize="19"
+                       Margin="60,20,0,0" />
+                <TextBlock x:Name="textblock14" Text="选择已经配置好的主题，或者自定义主题"
+                       RelativePanel.Below="textblock13" RequestedTheme="Light"
+                   FontSize="13"
+                       Margin="60,12,0,0" />
+                <muxc:RadioButtons x:Name="radio1" RelativePanel.Below="textblock14" RequestedTheme="Light"
+                               Margin="60,8,0,0">
+                    <RadioButton Content="原谅绿" Click="RadioButton_Click"
+                             Margin="0,0,0,100"/>
+                    <RadioButton Content="鸭蛋黄" Click="RadioButton_Click_1"/>
+                    <RadioButton Content="自定义" Click="RadioButton_Click_2"/>
+                </muxc:RadioButtons>
+                <Image Source="/tupian/5.png" Height="90"
+                   x:Name="image1" Margin="85,40,0,0"
+                   RelativePanel.Below="textblock14"/>
+
+                <Image Source="/tupian/3.png" Height="90"
+                   x:Name="image2" Margin="85,175,0,0"
+                   RelativePanel.Below="textblock14"/>
+
+                <Image Source="/tupian/6.png" Height="90"
+                   x:Name="image3" Margin="85,310,0,0"
+                   RelativePanel.Below="textblock14"/>
+                <TextBlock x:Name="textblock15" Text="自定义" RequestedTheme="Light"
+                       RelativePanel.Below="image3"
+                   FontSize="19"
+                       Margin="60,20,0,0" />
+                <TextBlock x:Name="textblock16" Text="选择背景图片，支持png、jpg、jpeg格式文件"
+                       RelativePanel.Below="textblock15" RequestedTheme="Light"
+                   FontSize="13"
+                       Margin="60,12,0,0" />
+                <Button x:Name="button4" Foreground="{ThemeResource SystemAccentColor}"
+                    RelativePanel.Below="textblock16" Content="选取图片" Click="button4_Click"
+                    Margin="60,8,0,0">
+                </Button>
+                <Image MaxHeight="150"
+                   x:Name="image4" Margin="60,8,0,0"
+                   RelativePanel.Below="button4"/>
+                <TextBlock x:Name="textblock19" Text="主题颜色，HEX显示格式"
+                       RelativePanel.Below="image4" RequestedTheme="Light"
+                   FontSize="13"
+                       Margin="60,12,0,0" />
+                <TextBox x:Name="textbox2" Width="200" BorderBrush="{ThemeResource SystemAccentColor}"
+                     RelativePanel.Below="textblock19" RequestedTheme="Light" IsReadOnly="True"
+                     Margin="60,5,0,0"/>
+                <Button x:Name="button5" RelativePanel.Below="textblock19" Foreground="{ThemeResource SystemAccentColor}"
+                    FontFamily="Segoe MDL2 Assets" Content="&#xE790;" RequestedTheme="Light"
+                    RelativePanel.RightOf="textbox2" Height="32" Width="35"
+                    Margin="15,5,0,0">
+                    <Button.Flyout>
+                        <Flyout x:Name="TravelFlyout" Closed="TravelFlyout_Closed">
+                            <muxc:ColorPicker x:Name="color1" Margin="5,5,5,5" RequestedTheme="Light"
+                                              IsMoreButtonVisible="False"
+                                IsColorSliderVisible="True"
+                                IsColorChannelTextInputVisible="True"
+                               IsHexInputVisible="True"
+                               IsAlphaEnabled="True"
+                              IsAlphaSliderVisible="True"
+                               IsAlphaTextInputVisible="True" />
+                        </Flyout>
+                    </Button.Flyout>
+                </Button>
+                <muxc:TeachingTip x:Name="ToggleThemeTeachingTip3"             
+                                  IsLightDismissEnabled="True"
+                                  Title="正在毛玻璃化所选图片"
+                                  >
+                    <muxc:TeachingTip.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <muxc:ProgressRing IsActive="True" Height="35" Width="35" x:Name="progress2"
+                           Foreground="{ThemeResource SystemAccentColor}"
+
+                           RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                            <TextBlock TextWrapping="Wrap" Width="250" VerticalAlignment="Center"
+                                       Text="我们正在后台处理你所选的图片，处理完毕后会自动关闭此窗口"
+                                       Margin="10,0,0,0"/>
+
+                        </StackPanel>
+                    </muxc:TeachingTip.Content>
+                </muxc:TeachingTip>
+
+                <TextBlock x:Name="textblock20" Text="背景图片处理方式"
+                       RelativePanel.Below="textbox2" RequestedTheme="Light"
+                   FontSize="13"
+                       Margin="60,12,0,0" />
+                <muxc:RadioButtons x:Name="radio2" RelativePanel.Below="textblock20" RequestedTheme="Light"
+                               Margin="60,5,0,0" SelectionChanged="radio2_SelectionChanged">
+                    <RadioButton Content="毛玻璃"/>
+                    <RadioButton Content="亚克力"/>
+                    <RadioButton Content="半透明遮罩"/>
+                </muxc:RadioButtons>
+                <TextBlock x:Name="textblock21" Text="透明度"
+                       RelativePanel.Below="radio2" TextWrapping="Wrap"
+                       FontSize="13" RequestedTheme="Light"
+                       Margin="60,12,0,0"/>
+                <Slider x:Name="slider2" Width="200" ValueChanged="slider2_ValueChanged"
+                    RelativePanel.Below="textblock21"
+                    Margin="60,5,0,0"/>
+                <TextBlock x:Name="textblock22" Text="40%" RequestedTheme="Light"
+                       RelativePanel.Below="textblock21" RelativePanel.AlignVerticalCenterWith="slider2" RelativePanel.RightOf="slider2"
+                       TextWrapping="Wrap"
+                       FontSize="13"
+                       Margin="20,0,0,0"/>
+                <TextBlock x:Name="textblock23" Text="文字颜色主题"
+                       RelativePanel.Below="slider2" RequestedTheme="Light"
+                   FontSize="13"
+                       Margin="60,12,0,0" />
+                <muxc:RadioButtons x:Name="radio3" RelativePanel.Below="textblock23" RequestedTheme="Light"
+                               Margin="60,5,0,0">
+                    <RadioButton Content="白色"/>
+                    <RadioButton Content="黑色"/>
+                </muxc:RadioButtons>
+
+            </RelativePanel>
+            <muxc:TeachingTip x:Name="ToggleThemeTeachingTip2" RequestedTheme="Light"
+	            Title="个性化设置成功"
+	            Subtitle="已经成功保存修改的设置，重新启动应用程序使修改生效"
+            	PreferredPlacement="Auto"
+            	PlacementMargin="20"
+	            IsLightDismissEnabled="True"
+	            ActionButtonClick="ToggleThemeTeachingTip2_ActionButtonClick"
+            	ActionButtonContent="立即重启"
+            	CloseButtonContent="稍后">
+            </muxc:TeachingTip>
+        </RelativePanel>
+    </ScrollViewer>
+</Page>

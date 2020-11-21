@@ -26,8 +26,8 @@
                  NewWindowRequested="webview1_NewWindowRequested"
                  RelativePanel.AlignRightWithPanel="True"
                  RelativePanel.AlignLeftWithPanel="True"
-                 RelativePanel.AlignBottomWithPanel="True"/> 
-        <muxc:ProgressBar x:Name="progress1" Visibility="Collapsed"
+                 RelativePanel.AlignBottomWithPanel="True"/>
+        <muxc:ProgressBar x:Name="progress1" Visibility="Collapsed"  Foreground="{ThemeResource SystemAccentColor}"
              IsIndeterminate="True" ShowPaused="False" ShowError="False" 
                           RelativePanel.Below="command1"
                           RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
