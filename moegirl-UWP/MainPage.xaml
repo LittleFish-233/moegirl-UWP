@@ -7,50 +7,20 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d"
-    Background="Transparent">
+    Background="{ThemeResource MyAcrylicBrush}">
     <Grid>
-        <Image x:Name="image1" Source="tupian/1.png" Stretch="UniformToFill"/>
-        <Grid x:Name="grid1" HorizontalAlignment="Stretch" Visibility="Collapsed"
-              Background="{ThemeResource SystemControlAcrylicElementBrush}" VerticalAlignment="Stretch">
-        </Grid>
+        <Image x:Name="image1" Stretch="UniformToFill"/>
         <Rectangle x:Name="re1" Fill="White" Visibility="Collapsed" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-        <muxc:NavigationView x:Name="nvSample" IsSettingsVisible="False"
+        <muxc:NavigationView x:Name="nvSample" IsSettingsVisible="False" 
                             Foreground="White" Background="Transparent"
                              IsBackButtonVisible="Collapsed"
-                             BackRequested="nvSample_BackRequested"
+                             PaneDisplayMode="LeftCompact"
                              RequestedTheme="Dark"
                              SelectionChanged="nvSample_SelectionChanged">
             <muxc:NavigationView.MenuItems>
-                <muxc:NavigationViewItem Content="大厅#D1884C#10893E" Tag="dating" Foreground="White">
+                <muxc:NavigationViewItem Content="大厅" Tag="dating" Foreground="White" IsSelected="True">
                     <muxc:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE10F;"/>
-                    </muxc:NavigationViewItem.Icon>
-                </muxc:NavigationViewItem>
-                <muxc:NavigationViewItemSeparator  Foreground="White"/>
-                <muxc:NavigationViewItem Content="词条检索" Tag="chitiao" Foreground="White">
-                    <muxc:NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xE1CB;"/>
-                    </muxc:NavigationViewItem.Icon>
-                </muxc:NavigationViewItem>
-                <muxc:NavigationViewItem Content="讨论组" Tag="taolunzhu" Foreground="White">
-                    <muxc:NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xE781;"/>
-                    </muxc:NavigationViewItem.Icon>
-                </muxc:NavigationViewItem>
-                <muxc:NavigationViewItem Content="创作中心" Tag="chuangzuo" Foreground="White">
-                    <muxc:NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xF7BB;"/>
-                    </muxc:NavigationViewItem.Icon> 
-
-                </muxc:NavigationViewItem>
-                <muxc:NavigationViewItem Content="工具盒" Tag="gongju" Foreground="White">
-                    <muxc:NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xE8F1;"/>
-                    </muxc:NavigationViewItem.Icon>
-                </muxc:NavigationViewItem>
-                <muxc:NavigationViewItem Content="账户" Tag="zhanghu" Foreground="White">
-                    <muxc:NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xE187;"/>
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
                 <muxc:NavigationViewItemSeparator Foreground="White"/>
@@ -65,12 +35,7 @@
                         <FontIcon Glyph="&#xE115;"/>
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
-                <muxc:NavigationViewItem Content="用户手册"  Tag="yonghu" Foreground="White">
-                    <muxc:NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xE82D;"/>
-                    </muxc:NavigationViewItem.Icon>
-                </muxc:NavigationViewItem>
-                <muxc:NavigationViewItem Content="关于我们" Tag="guanyu" Foreground="White">
+                <muxc:NavigationViewItem Content="关于" Tag="guanyu" Foreground="White">
                     <muxc:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE946;"/>
                     </muxc:NavigationViewItem.Icon>

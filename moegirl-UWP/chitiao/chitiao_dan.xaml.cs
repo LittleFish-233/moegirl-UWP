@@ -22,11 +22,31 @@ namespace moegirl_UWP.chitiao
     /// </summary>
     public sealed partial class chitiao_dan : Page
     {
+        int danqian_xuanze = 0;
         public chitiao_dan()
         {
             this.InitializeComponent();
             NavigationCacheMode = NavigationCacheMode.Enabled;
             daima.huancun.chitiao.Xianshitishi += Chitiao_Xianshitishi;
+            Loaded += Chitiao_dan_Loaded;
+        }
+
+        private void Chitiao_dan_Loaded(object sender, RoutedEventArgs e)
+        {
+            textblock1.Text = daima.huancun.sousuo.danqian_lianjie;
+            //修改选项卡
+            if (danqian_xuanze == 0)
+            {
+                daima.huancun.chitiao.Kaishitishi("导航到", 9);
+            }
+            else
+            {
+                pivot1.SelectedIndex = 0;
+            }
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)//重写
+        {
+            daima.huancun.chitiao.danqian_yemian = 3;
         }
         private async void Chitiao_Xianshitishi(string a, int xuhao)
         {
@@ -50,9 +70,18 @@ namespace moegirl_UWP.chitiao
                         Title = "复制链接成功",
                         Content = "快去分享给朋友吧。",
                         CloseButtonText = "好的"
-                        
+
                     };
                     await noWifiDialog.ShowAsync();
+                    break;
+                case 8:
+                    if (Frame.CanGoBack)
+                    {
+                        Frame.GoBack();
+                    }
+                    break;
+                case 10:
+                    Frame.Navigate(typeof(fenlei));
                     break;
             }
         }
@@ -60,6 +89,7 @@ namespace moegirl_UWP.chitiao
         private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             xianshi_beijing(pivot1.SelectedIndex);
+            danqian_xuanze = pivot1.SelectedIndex;
             switch(pivot1.SelectedIndex)
             {
                 case 0:

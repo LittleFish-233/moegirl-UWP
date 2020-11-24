@@ -236,11 +236,11 @@ namespace moegirl_UWP.shezhi
 
             Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();
             if (file != null)
-            {             
+            {
                 try
                 {
                     //复制文件到储存位置
-                    daima.huancun.shezhi_Quanju.baocun_beijingtupian(file);
+                    await daima.huancun.shezhi_Quanju.baocun_beijingtupianAsync(file);
                 }
                 catch (Exception exc)
                 {
@@ -251,26 +251,27 @@ namespace moegirl_UWP.shezhi
                         CloseButtonText = "好的"
                     };
                     await noWifiDialog.ShowAsync();
+                    return;
+                }          
+                //处理图片预览
+                if (daima.huancun.shezhi_Quanju.tupian_chuli == 0)
+                {
+
+                }
+                else
+                {
+                    using (var stream = await file.OpenAsync(FileAccessMode.Read))
+                    {
+                        BitmapImage img = new BitmapImage();
+                        await img.SetSourceAsync(stream);
+                        image4.Source = img;
+                    }
                 }
             }
             else
             {
                 //删除背景图片
-                daima.huancun.shezhi_Quanju.baocun_beijingtupian(null);
-            }
-            //处理图片预览
-            if (daima.huancun.shezhi_Quanju.tupian_chuli == 0)
-            {
-
-            }
-            else
-            {
-                using (var stream = await file.OpenAsync(FileAccessMode.Read))
-                {
-                    BitmapImage img = new BitmapImage();
-                    await img.SetSourceAsync(stream);
-                    image4.Source = img;
-                }
+                await daima.huancun.shezhi_Quanju.baocun_beijingtupianAsync(null);
             }
             //触发事件
             daima.huancun.shezhi.Kaishitishi("更换背景图片", 1);

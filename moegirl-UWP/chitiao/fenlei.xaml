@@ -1,0 +1,50 @@
+﻿<Page
+    x:Class="moegirl_UWP.chitiao.fenlei"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:moegirl_UWP.chitiao"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    Background="Transparent">
+
+    <RelativePanel>
+        <TextBlock x:Name="biaoti1" Text="萌 娘 百 科" Margin="40,20,0,0"
+                           FontFamily="font/FZJLJW.TTF#书体坊禚效锋行草 简"
+                          FontSize="50" Foreground="{ThemeResource SystemAccentColor}" />
+        <TextBlock x:Name="biaoti2" Text="万物皆可萌的百科全书" FontSize="24" RelativePanel.Below="biaoti1"
+                           FontFamily="font/STFZXFXCJW.TTF#方正静蕾简体"
+                           Foreground="{ThemeResource SystemAccentColor}" Margin="42,0,0,0"/>
+        <RelativePanel RelativePanel.Below="biaoti2" x:Name="re1"
+                           Margin="42,10,0,0">
+            <Button x:Name="button1"   Foreground="{ThemeResource SystemAccentColor}"  Click="button1_Click"
+                    Height="25" BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="1"
+                    Margin="0,0,0,0">
+                <StackPanel Orientation="Horizontal" Margin="0,-5,0,-3" >
+                    <TextBlock Text="&#xE10F;" FontFamily="Segoe MDL2 Assets" FontSize="15" Margin="0,2.5,0,0"/>
+                    <TextBlock Text="主页" FontSize="14" Margin="5,0,0,0"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="button2" RelativePanel.RightOf="button1"  Foreground="{ThemeResource SystemAccentColor}"           
+                    Height="25" BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="1"
+                    Margin="15,0,0,0" Click="button2_Click">
+                <StackPanel Orientation="Horizontal" Margin="0,-5,0,-3" >
+                    <TextBlock Text="&#xE10E;" FontFamily="Segoe MDL2 Assets" FontSize="15" Margin="0,2.5,0,0"/>
+                    <TextBlock Text="返回" FontSize="14" Margin="5,0,0,0"/>
+                </StackPanel>
+            </Button>
+        </RelativePanel>
+
+        <WebView x:Name="webview1" DefaultBackgroundColor="Transparent"
+                 Margin="43,20,0,0"
+                 NewWindowRequested="webview1_NewWindowRequested"
+                 NavigationStarting="webview1_NavigationStarting"
+                 NavigationCompleted="webview1_NavigationCompleted"
+                 RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="re1"
+                 Visibility="Collapsed"/>
+        <muxc:ProgressRing  Height="120" Width="120" x:Name="progress1" IsActive="True"
+                           Foreground="{ThemeResource SystemAccentColor}"
+                           RelativePanel.AlignHorizontalCenterWith="webview1" RelativePanel.AlignVerticalCenterWith="webview1"/>
+    </RelativePanel>
+</Page>

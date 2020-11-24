@@ -40,7 +40,7 @@ namespace moegirl_UWP
         async System.Threading.Tasks.Task<int> chushihuaAsync()
         {
             await daima.huancun.ChushihuaAsync();
-            SolidColorBrush brush = null;
+            SolidColorBrush brush;
             brush = new SolidColorBrush(daima.huancun.shezhi_Quanju.huoqu_zhuti_yanse());
             SolidColorBrush brush_white = new SolidColorBrush(Windows.UI.Color.FromArgb(255,255,255,255)); // green
 

@@ -13,11 +13,17 @@ namespace moegirl_UWP.daima
         /// 网页版默认导航的地址 也可用作全局默认的根地址
         /// </summary>
         public const string Wangzhi = "https://zh.moegirl.org.cn/";
+        /// <summary>
+        /// 默认搜索的地址
+        /// </summary>
+        public const string sousuo_wangzhi = "https://zh.moegirl.org.cn/index.php?title=Special:搜索";
 
         public static Wangye_zhijie wangye_Zhijie = new Wangye_zhijie();
         public static Chitiao chitiao = new Chitiao();
         public static Shezhi_quanju shezhi_Quanju = new Shezhi_quanju();
         public static Shezhi shezhi = new Shezhi();
+        public static Sousuo sousuo = new Sousuo();
+        public static Fenlei fenlei = new Fenlei();
 
         /// <summary>
         /// 判断页面类型 1 主页 2 词条 3 分类 4 工具 5 其他 6讨论 7 帮助
@@ -96,6 +102,10 @@ namespace moegirl_UWP.daima
         /// 图片链接列表
         /// </summary>
         public List<tupian_xinxi> tupian_liebiao = new List<tupian_xinxi>();
+        /// <summary>
+        /// 0 主页 1 搜索 2 分类 3 词条
+        /// </summary>
+        public int danqian_yemian = 0;
 
         public string[] paichu_liebiao = {
             "知识共享(Creative Commons) 署名-非商业性使用-相同方式共享 3.0 协议",
@@ -104,13 +114,13 @@ namespace moegirl_UWP.daima
 
         public Chitiao()
         {
-            daohan_duifa.Add("https://zh.moegirl.org.cn/%E7%8B%90%E5%A6%96%E5%B0%8F%E7%BA%A2%E5%A8%98#");
+           //daohan_duifa.Add("https://zh.moegirl.org.cn/%E7%8B%90%E5%A6%96%E5%B0%8F%E7%BA%A2%E5%A8%98#");
         }
         /// <summary>
         /// 触发事件
         /// </summary>
         /// <param name="a">信息</param>
-        /// <param name="xuhao">序号 用作匹配 1 跳转 2 传递标题 3在其他页面时的跳转 4后退外层 5后退内层 6通知复制链接 7通知链接复制成功</param>
+        /// <param name="xuhao">序号 用作匹配 1 跳转 2 传递标题 3在其他页面时的跳转 4后退外层 5后退内层 6通知复制链接 7通知链接复制成功 8整个页面向后导航 9由搜索页面跳转到 10跳转分类</param>
         public void Kaishitishi(string a, int xuhao)
         {
             Xianshitishi?.Invoke(a, xuhao);
@@ -166,6 +176,60 @@ namespace moegirl_UWP.daima
         public delegate void delegateRun(string a, int xuhao);
         //定义一个事件
         public event delegateRun Xianshitishi;
+        /// <summary>
+        /// 触发事件
+        /// </summary>
+        /// <param name="a">信息</param>
+        /// <param name="xuhao">序号 用作匹配 1更改背景图片 2更换图片处理方式 3更换主题</param>
+        public void Kaishitishi(string a, int xuhao)
+        {
+            Xianshitishi?.Invoke(a, xuhao);
+        }
+    }
+    /// <summary>
+    /// 设置
+    /// </summary>
+    public class Sousuo
+    {
+        /// <summary>
+        /// 委托
+        /// </summary>
+        /// <param name="a">信息</param>
+        /// <param name="xuhao">序号 用作匹配</param>
+        public delegate void delegateRun(string a, int xuhao);
+        //定义一个事件
+        public event delegateRun Xianshitishi;
+        /// <summary>
+        /// 当前图片
+        /// </summary>
+        public string danqian_lianjie = "";
+        /// <summary>
+        /// 触发事件
+        /// </summary>
+        /// <param name="a">信息</param>
+        /// <param name="xuhao">序号 用作匹配 1更改背景图片 2更换图片处理方式 3更换主题</param>
+        public void Kaishitishi(string a, int xuhao)
+        {
+            Xianshitishi?.Invoke(a, xuhao);
+        }
+    }
+    /// <summary>
+    /// 设置
+    /// </summary>
+    public class Fenlei
+    {
+        /// <summary>
+        /// 委托
+        /// </summary>
+        /// <param name="a">信息</param>
+        /// <param name="xuhao">序号 用作匹配</param>
+        public delegate void delegateRun(string a, int xuhao);
+        //定义一个事件
+        public event delegateRun Xianshitishi;
+        /// <summary>
+        /// 当前图片
+        /// </summary>
+        public string danqian_lianjie = "";
         /// <summary>
         /// 触发事件
         /// </summary>

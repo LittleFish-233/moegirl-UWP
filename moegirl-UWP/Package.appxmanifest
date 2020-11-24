@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="aac526c8-7624-47a9-bd02-8685c2d75323"
-    Publisher="CN=Little Fish"
-    Version="1.0.0.0" />
+    Name="418TheLastMagician.-Moegirl"
+    Publisher="CN=FE9FCCA6-5EE3-4735-B5F0-5DEDC05969DA"
+    Version="1.0.11.0" />
 
-  <mp:PhoneIdentity PhoneProductId="aac526c8-7624-47a9-bd02-8685c2d75323" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="242067ec-4b06-4022-80c4-479a7affcb9e" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>moegirl-UWP</DisplayName>
-    <PublisherDisplayName>Little Fish</PublisherDisplayName>
+    <DisplayName>萌娘百科-Moegirl</DisplayName>
+    <PublisherDisplayName>Little Fish团队</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -32,13 +32,19 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="moegirl_UWP.App">
       <uap:VisualElements
-        DisplayName="moegirl-UWP"
+        DisplayName="萌娘百科③"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="moegirl-UWP"
+        Description="萌娘百科第三方UWP客户端 - 基于流畅设计体系"
         BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
-        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\SmallTile.png" Square310x310Logo="Assets\LargeTile.png">
+        </uap:DefaultTile >
+        <uap:SplashScreen Image="Assets\SplashScreen.png"  BackgroundColor="white"/>
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="landscape"/>
+          <uap:Rotation Preference="landscapeFlipped"/>
+          <uap:Rotation Preference="portraitFlipped"/>
+          <uap:Rotation Preference="portrait"/></uap:InitialRotationPreference>
       </uap:VisualElements>
     </Application>
   </Applications>

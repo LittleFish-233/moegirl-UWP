@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="moegirl_UWP.guanyu.women"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:moegirl_UWP.guanyu"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Transparent">
+    <RelativePanel>
+        <TextBlock x:Name="textblock9" Text="应用版本号:  1.0.0"
+                   x:Uid="/guanyu/textblock9"
+                   Margin="0,0,5,0"/>
+        <TextBlock x:Name="textblock10" Text="最后更新日期:  2020/11/24 7:28"
+                   x:Uid="/guanyu/textblock10"
+                   RelativePanel.Below="textblock9" 
+                   Margin="0,15,5,0"/>
+        <TextBlock x:Name="textblock11" Text="开发者:  沙雕の方块" 
+                   x:Uid="/guanyu/textblock11"
+                   RelativePanel.Below="textblock10"  TextWrapping="Wrap"
+                   Margin="0,15,5,0"/>
+        <TextBlock x:Name="textblock12" Text="电子邮箱:  " 
+                   x:Uid="/guanyu/textblock12"
+                   RelativePanel.Below="textblock11" TextWrapping="Wrap"
+                   Margin="0,15,5,0"/>
+        <HyperlinkButton  RelativePanel.RightOf="textblock12" Margin="0,0,0,-6" Foreground="{ThemeResource SystemAccentColor}"
+                       RelativePanel.AlignBottomWith="textblock12" Content="LittleFishTenyears@outlook.com" Click="HyperlinkButton_Click"/>
+
+        <TextBlock x:Name="textblock14" Text="QQ:  1278490989"
+                   RelativePanel.Below="textblock12"
+                   x:Uid="/guanyu/textblock14"   
+                   Margin="0,15,5,0"/>
+        <TextBlock x:Name="textblock15" Text="二次元编程会社:  955456615"
+                   x:Uid="/guanyu/textblock15"
+                   RelativePanel.Below="textblock14" TextWrapping="Wrap"
+                   Margin="0,15,5,0"/>
+        <TextBlock x:Name="textblock16" Text="萌娘百科:  "
+                   RelativePanel.Below="textblock15" TextWrapping="Wrap"
+                   x:Uid="/guanyu/textblock16"
+                   Margin="0,15,5,0" FontWeight="Light"/>
+        <HyperlinkButton  RelativePanel.RightOf="textblock16" Margin="0,0,0,-6" Foreground="{ThemeResource SystemAccentColor}"
+                       RelativePanel.AlignBottomWith="textblock16" Content="https://zh.moegirl.org.cn/" NavigateUri="https://zh.moegirl.org.cn/"/>
+    </RelativePanel>
+</Page>

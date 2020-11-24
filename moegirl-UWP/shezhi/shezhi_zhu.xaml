@@ -208,9 +208,9 @@
                        Margin="20,0,0,0"/>
                 <TextBlock x:Name="textblock23" Text="文字颜色主题"
                        RelativePanel.Below="slider2" RequestedTheme="Light"
-                   FontSize="13"
+                   FontSize="13" Visibility="Collapsed"
                        Margin="60,12,0,0" />
-                <muxc:RadioButtons x:Name="radio3" RelativePanel.Below="textblock23" RequestedTheme="Light"
+                <muxc:RadioButtons x:Name="radio3" RelativePanel.Below="textblock23" RequestedTheme="Light" Visibility="Collapsed"
                                Margin="60,5,0,0">
                     <RadioButton Content="白色"/>
                     <RadioButton Content="黑色"/>

@@ -1,0 +1,42 @@
+﻿<Page
+    x:Class="moegirl_UWP.guanyu.weilai"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:moegirl_UWP.guanyu"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Transparent">
+
+    <ScrollViewer>
+        <RelativePanel Margin="0,0,0,0">
+            <TextBlock x:Name="textblock1" Text="近期规划" FontWeight="Bold" 
+                       FontSize="18"
+                       Margin="0,0,0,10"/>
+            <TextBlock x:Name="textblock2" Text="1.实现功能：登入系统、用户手册、工具箱"
+                       TextWrapping="Wrap" Margin="0,0,0,5"
+                       RelativePanel.Below="textblock1" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+            <TextBlock x:Name="textblock3" Text="2.适配夜间模式（页面字体颜色调整）"
+                       TextWrapping="Wrap" Margin="0,0,0,5"               
+                       RelativePanel.Below="textblock2" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+            <TextBlock x:Name="textblock4" Text="长期规划" FontWeight="Bold" RelativePanel.Below="textblock3"
+                       FontSize="18"
+                       Margin="0,20,0,10"/>
+            <TextBlock x:Name="textblock5" Text="1.实现功能：词条编辑、讨论版重新渲染"
+                       TextWrapping="Wrap" Margin="0,0,0,5"
+                       RelativePanel.Below="textblock4" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+            <TextBlock x:Name="textblock6" Text="2.极大优化内存占用"
+                       TextWrapping="Wrap" Margin="0,0,0,5"               
+                       RelativePanel.Below="textblock5" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+            <TextBlock x:Name="textblock7" Text="碎碎念" FontWeight="Bold" RelativePanel.Below="textblock6"
+                       FontSize="18"
+                       Margin="0,20,0,10"/>
+            <TextBlock x:Name="textblock8" Text="1.我看到原先的萌娘百科UWP应用在更换域名后无法使用，便着开始这个全新的UWP客户端开发（主要是联系不到作者，过去将近4年了吧）现在这个版本有很多不足，但我会在未来不断完善的。"
+                       TextWrapping="Wrap" Margin="0,0,0,5"
+                       RelativePanel.Below="textblock7" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+            <TextBlock x:Name="textblock9" Text="2.现在这个应用因为大量页面使用Webview，内存占用很不理想。那么早上架其实也是想抛砖引玉，看看大佬们有没有什么解决办法。后续开发完毕，会再尝试移植到桌面和安卓平台（似乎官方已经在重构移动应用）"
+                       TextWrapping="Wrap" Margin="0,0,0,5"               
+                       RelativePanel.Below="textblock8" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+        </RelativePanel>
+    </ScrollViewer>
+</Page>

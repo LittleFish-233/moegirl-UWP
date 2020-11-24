@@ -168,25 +168,31 @@ namespace moegirl_UWP.chitiao
             switch (xuhao)
             {
                 case 5:
-                    //判断是否在显示图片详情
-                    if (re1.Visibility == Visibility.Visible)
+                    if (a == "2")
                     {
-                        re1.Visibility = Visibility.Collapsed;
-                        gridview1.Visibility = Visibility.Visible;
-                        image2.Source = null;
-                    }
-                    else
-                    {
-                        if (daima.huancun.chitiao.daohan_duifa.Count > 1 && a == "1")
+                        //判断是否在显示图片详情
+                        if (re1.Visibility == Visibility.Visible)
                         {
-                            //复制导航记录
-                            string linshi = daima.huancun.chitiao.daohan_duifa[daima.huancun.chitiao.daohan_duifa.Count - 1];
-                            //删除导航记录
-                            daima.huancun.chitiao.daohan_duifa.RemoveAt(daima.huancun.chitiao.daohan_duifa.Count - 1);
-                            //触发事件
-                            daima.huancun.chitiao.Kaishitishi("跳转", 2);
+                            re1.Visibility = Visibility.Collapsed;
+                            gridview1.Visibility = Visibility.Visible;
+                            image2.Source = null;
                         }
-
+                        else
+                        {
+                            if (daima.huancun.chitiao.daohan_duifa.Count > 1)
+                            {
+                                //复制导航记录
+                                string linshi = daima.huancun.chitiao.daohan_duifa[daima.huancun.chitiao.daohan_duifa.Count - 1];
+                                //删除导航记录
+                                daima.huancun.chitiao.daohan_duifa.RemoveAt(daima.huancun.chitiao.daohan_duifa.Count - 1);
+                                //触发事件
+                                daima.huancun.chitiao.Kaishitishi("跳转", 2);
+                            }
+                            else
+                            {
+                                daima.huancun.chitiao.Kaishitishi("整体向后导航", 8);
+                            }
+                        }
                     }
                     break;
                 case 6:

@@ -13,6 +13,10 @@ namespace moegirl_UWP.daima
 {
     public class Shezhi_quanju
     {
+        private bool shifou_baocun = false;
+
+
+
         /// <summary>
         /// 客户端版本
         /// </summary>
@@ -96,7 +100,7 @@ namespace moegirl_UWP.daima
         /// 保存背景图片 单参数为null时删除背景图片
         /// </summary>
         /// <param name="file"></param>
-        public async void baocun_beijingtupian(StorageFile file)
+        public async Task<int> baocun_beijingtupianAsync(StorageFile file)
         {
             if (file == null)
             {
@@ -110,6 +114,7 @@ namespace moegirl_UWP.daima
             {
                 await file.CopyAsync(await huoqu_geng_wenjianjiaAsync(), "background.jpg", NameCollisionOption.ReplaceExisting);
             }
+            return 0;
         }
         /// <summary>
         /// 获取主题背景
@@ -157,6 +162,12 @@ namespace moegirl_UWP.daima
         /// <returns>是否成功</returns>
         public async Task<bool> BaocunAsync()
         {
+            //检查是否正在保存
+            if(shifou_baocun==true)
+            {
+                return false;
+            }
+            shifou_baocun = true;
             try
             {
                 //序列化数组 
@@ -185,8 +196,10 @@ namespace moegirl_UWP.daima
             }
             catch
             {
+                shifou_baocun = false;
                 return false;
             }
+            shifou_baocun = false;
             return true;
         }
         /// <summary>

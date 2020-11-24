@@ -26,7 +26,7 @@ namespace moegirl_UWP.chitiao
     /// </summary>
     public sealed partial class xiangguan : Page
     {
-        string danqian_lianjie = "";
+        string danqian_lianjie = "465653131";
         bool shifou_jiazai = true;
         bool shifou_xiugai = true;
 
@@ -43,14 +43,21 @@ namespace moegirl_UWP.chitiao
             switch(xuhao)
             {
                 case 5:
-                    if(daima.huancun.chitiao.daohan_duifa.Count > 1 && a =="1")
+                    if (a == "1")
                     {
-                        //复制导航记录
-                        string linshi = daima.huancun.chitiao.daohan_duifa[daima.huancun.chitiao.daohan_duifa.Count - 1];
-                        //删除导航记录
-                        daima.huancun.chitiao.daohan_duifa.RemoveAt(daima.huancun.chitiao.daohan_duifa.Count - 1);
-                        //触发事件
-                        daima.huancun.chitiao.Kaishitishi("跳转", 2);
+                        if (daima.huancun.chitiao.daohan_duifa.Count > 1)
+                        {
+                            //复制导航记录
+                            string linshi = daima.huancun.chitiao.daohan_duifa[daima.huancun.chitiao.daohan_duifa.Count - 1];
+                            //删除导航记录
+                            daima.huancun.chitiao.daohan_duifa.RemoveAt(daima.huancun.chitiao.daohan_duifa.Count - 1);
+                            //触发事件
+                            daima.huancun.chitiao.Kaishitishi("跳转", 2);
+                        }
+                        else
+                        {
+                            daima.huancun.chitiao.Kaishitishi("整体向后导航", 8);
+                        }
                     }
                     break;
                 case 6:
@@ -275,14 +282,23 @@ namespace moegirl_UWP.chitiao
                 }
                 else
                 {
-                    //启动进度条
-                    jindutiao(true);
-                    //因为已经开始导航 只要修改元素
-                    IAsyncAction asyncAction = Windows.System.Threading.ThreadPool.RunAsync(
-                        (workItem) =>
-                        {
-                            xiugai_wangye();
-                        });
+                    //检查是否为同一个链接
+                    if (danqian_lianjie.StartsWith(args.Uri.AbsoluteUri) || args.Uri.AbsoluteUri.StartsWith(danqian_lianjie))
+                    {
+
+                    }
+                    else
+                    {
+                        danqian_lianjie = args.Uri.AbsoluteUri;
+                        //启动进度条
+                        jindutiao(true);
+                        //因为已经开始导航 只要修改元素
+                        IAsyncAction asyncAction = Windows.System.Threading.ThreadPool.RunAsync(
+                            (workItem) =>
+                            {
+                                xiugai_wangye();
+                            });
+                    }
                 }
             }
             else//用浏览器打开

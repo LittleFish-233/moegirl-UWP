@@ -6,9 +6,108 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Transparent">
 
-    <Grid>
+    <RelativePanel>
+        <RelativePanel RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"
+                       Margin="0,0,0,200">
+            <TextBlock x:Name="biaoti1" Text="萌 娘 百 科" Margin="0,20,0,0"
+                   RelativePanel.AlignHorizontalCenterWithPanel="True"
+                           FontFamily="font/FZJLJW.TTF#书体坊禚效锋行草 简"
+                          FontSize="70" Foreground="{ThemeResource SystemAccentColor}" />
+            <TextBlock x:Name="biaoti2" Text="万物皆可萌的百科全书" FontSize="28" RelativePanel.Below="biaoti1"
+                           FontFamily="font/STFZXFXCJW.TTF#方正静蕾简体"
+                           RelativePanel.AlignHorizontalCenterWithPanel="True" 
+                           Foreground="{ThemeResource SystemAccentColor}" Margin="0,20,0,0"/>
+            <RelativePanel RelativePanel.Below="biaoti2" RelativePanel.AlignHorizontalCenterWithPanel="True"
+                           Margin="0,100,0,0">
+                <TextBox x:Name="textbox1" Width="600" RelativePanel.AlignHorizontalCenterWithPanel="True"
+                     Margin="0,0,0,0" RequestedTheme="Light" PlaceholderText="搜索萌娘百科"/>
+                <Button x:Name="button1" RelativePanel.RightOf="textbox1" RelativePanel.AlignVerticalCenterWith="textbox1" Foreground="{ThemeResource SystemAccentColor}"
+                    FontFamily="Segoe MDL2 Assets" Content="&#xE721;" Click="button1_Click"
+                    Height="30" Width="35"
+                    Margin="15,0,0,0"/>
+                <Button x:Name="button2" RelativePanel.RightOf="button1" RelativePanel.AlignVerticalCenterWith="textbox1" Foreground="{ThemeResource SystemAccentColor}"
+                    FontFamily="Segoe MDL2 Assets" Content="&#xF6BA;"
+                    Margin="10,0,0,0"/>
+            </RelativePanel>
+        </RelativePanel>
+        <RelativePanel  x:Name="re1" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignBottomWithPanel="True"
+                           Margin="42,10,0,20">
+            <Button x:Name="button4"   Foreground="{ThemeResource SystemAccentColor}" Click="button4_Click"
+                    Height="25" BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="1"
+                    Margin="0,0,0,0">
+                <StackPanel Orientation="Horizontal" Margin="0,-5,0,-3" >
+                    <TextBlock Text="&#xE719;" FontFamily="Segoe MDL2 Assets" FontSize="15" Margin="0,2.5,0,0"/>
+                    <TextBlock Text="萌属性" FontSize="14" Margin="5,0,0,0"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="button5" RelativePanel.RightOf="button4"  Foreground="{ThemeResource SystemAccentColor}" Click="button5_Click"          
+                    Height="25" BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="1"
+                    Margin="10,0,0,0" >
+                <StackPanel Orientation="Horizontal" Margin="0,-5,0,-3" >
+                    <TextBlock Text="&#xF7BB;" FontFamily="Segoe MDL2 Assets" FontSize="15" Margin="0,2.5,0,0"/>
+                    <TextBlock Text="作品" FontSize="14" Margin="5,0,0,0"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="button6"   Foreground="{ThemeResource SystemAccentColor}"
+                    Height="25" BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="1" Click="button6_Click"
+                    Margin="10,0,0,0" RelativePanel.RightOf="button5">
+                <StackPanel Orientation="Horizontal" Margin="0,-5,0,-3" >
+                    <TextBlock Text="&#xE74C;" FontFamily="Segoe MDL2 Assets" FontSize="15" Margin="0,2.5,0,0"/>
+                    <TextBlock Text="人物" FontSize="14" Margin="5,0,0,0"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="button7" RelativePanel.RightOf="button6"  Foreground="{ThemeResource SystemAccentColor}"  Click="button7_Click"      
+                    Height="25" BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="1"
+                    Margin="10,0,0,0">
+                <StackPanel Orientation="Horizontal" Margin="0,-5,0,-3" >
+                    <TextBlock Text="&#xEC4F;" FontFamily="Segoe MDL2 Assets" FontSize="15" Margin="0,2.5,0,0"/>
+                    <TextBlock Text="音乐" FontSize="14" Margin="5,0,0,0"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="button8"   Foreground="{ThemeResource SystemAccentColor}"  Click="button8_Click"
+                    Height="25" BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="1"
+                    Margin="10,0,0,0" RelativePanel.RightOf="button7">
+                <StackPanel Orientation="Horizontal" Margin="0,-5,0,-3" >
+                    <TextBlock Text="&#xE705;" FontFamily="Segoe MDL2 Assets" FontSize="15" Margin="0,2.5,0,0"/>
+                    <TextBlock Text="文化" FontSize="14" Margin="5,0,0,0"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="button9" RelativePanel.RightOf="button8"  Foreground="{ThemeResource SystemAccentColor}"  Click="button9_Click"         
+                    Height="25" BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="1"
+                    Margin="10,0,0,0" >
+                <StackPanel Orientation="Horizontal" Margin="0,-5,0,-3" >
+                    <TextBlock Text="&#xECAD;" FontFamily="Segoe MDL2 Assets" FontSize="15" Margin="0,2.5,0,0"/>
+                    <TextBlock Text="软件" FontSize="14" Margin="5,0,0,0"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="button10"   Foreground="{ThemeResource SystemAccentColor}" Click="button10_Click"
+                    Height="25" BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="1"
+                    Margin="10,0,0,0" RelativePanel.RightOf="button9">
+                <StackPanel Orientation="Horizontal" Margin="0,-5,0,-3" >
+                    <TextBlock Text="&#xED55;" FontFamily="Segoe MDL2 Assets" FontSize="15" Margin="0,2.5,0,0"/>
+                    <TextBlock Text="活动" FontSize="14" Margin="5,0,0,0"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="button11" RelativePanel.RightOf="button10"  Foreground="{ThemeResource SystemAccentColor}" Click="button11_Click"         
+                    Height="25" BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="1"
+                    Margin="10,0,0,0">
+                <StackPanel Orientation="Horizontal" Margin="0,-5,0,-3" >
+                    <TextBlock Text="&#xE790;" FontFamily="Segoe MDL2 Assets" FontSize="15" Margin="0,2.5,0,0"/>
+                    <TextBlock Text="漫画" FontSize="14" Margin="5,0,0,0"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="button12" RelativePanel.RightOf="button11"  Foreground="{ThemeResource SystemAccentColor}" Click="button12_Click"          
+                    Height="25" BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="1"
+                    Margin="10,0,0,0">
+                <StackPanel Orientation="Horizontal" Margin="0,-5,0,-3" >
+                    <TextBlock Text="&#xE713;" FontFamily="Segoe MDL2 Assets" FontSize="15" Margin="0,2.5,0,0"/>
+                    <TextBlock Text="设定" FontSize="14" Margin="5,0,0,0"/>
+                </StackPanel>
+            </Button>
+        </RelativePanel>
 
-    </Grid>
+
+    </RelativePanel>
 </Page>

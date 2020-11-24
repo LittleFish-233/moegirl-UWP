@@ -44,14 +44,12 @@ namespace moegirl_UWP
                     {
                         case "1":
                             re1.Visibility = Visibility.Collapsed;
-                            image1.Opacity = 1;
-                            grid1.Visibility = Visibility.Visible;
+                            image1.Opacity = 0;
                             break;
                         case "2":
                             re1.Visibility = Visibility.Visible;
                             re1.Opacity = daima.huancun.shezhi_Quanju.toumingdu;
                             image1.Opacity = 1;
-                            grid1.Visibility = Visibility.Collapsed;
                             break;
                     }
                     break;
@@ -76,13 +74,11 @@ namespace moegirl_UWP
                     case 1:
                         re1.Visibility = Visibility.Collapsed;
                         image1.Opacity = 1;
-                        grid1.Visibility = Visibility.Visible;
                         break;
                     case 2:
                         re1.Visibility = Visibility.Visible;
                         re1.Opacity = daima.huancun.shezhi_Quanju.toumingdu;
                         image1.Opacity = 1;
-                        grid1.Visibility = Visibility.Collapsed;
                         break;
                 }
             }
@@ -148,10 +144,44 @@ namespace moegirl_UWP
                         ContentFrame.Navigate(typeof(wangye_zhijie.wangye));
                         break;
                     case "chitiao":
-                        ContentFrame.Navigate(typeof(chitiao.chitiao_dan));
+                        switch (daima.huancun.chitiao.danqian_yemian)
+                        {
+                            case 0:
+                                ContentFrame.Navigate(typeof(chitiao.zhu_chitiao));
+                                break;
+                            case 1:
+                                ContentFrame.Navigate(typeof(chitiao.shousuo_jieguo));
+                                break;
+                            case 2:
+                                ContentFrame.Navigate(typeof(chitiao.fenlei));
+                                break;
+                            case 3:
+                                ContentFrame.Navigate(typeof(chitiao.chitiao_dan));
+                                break;
+                        }
+                        break;
+                    case "dating":
+                        switch (daima.huancun.chitiao.danqian_yemian)
+                        {
+                            case 0:
+                                ContentFrame.Navigate(typeof(chitiao.zhu_chitiao));
+                                break;
+                            case 1:
+                                ContentFrame.Navigate(typeof(chitiao.shousuo_jieguo));
+                                break;
+                            case 2:
+                                ContentFrame.Navigate(typeof(chitiao.fenlei));
+                                break;
+                            case 3:
+                                ContentFrame.Navigate(typeof(chitiao.chitiao_dan));
+                                break;
+                        }
                         break;
                     case "shezhi":
                         ContentFrame.Navigate(typeof(shezhi.shezhi_zhu));
+                        break;
+                    case "guanyu":
+                        ContentFrame.Navigate(typeof(guanyu.guanyu_zhu));
                         break;
                 }
             }

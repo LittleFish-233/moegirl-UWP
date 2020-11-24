@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="moegirl_UWP.guanyu.gengxin"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:moegirl_UWP.guanyu"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Transparent">
+
+    <ScrollViewer>
+        <RelativePanel Margin="0,0,0,0">
+            <TextBlock x:Name="textblock1" Text="2020/11/24   版本：1.0.0" FontWeight="Bold" 
+                       x:Uid="/shiyong/textblock1"
+                       FontSize="18"
+                       Margin="0,0,0,10"/>
+            <TextBlock x:Name="textblock2" Text="1.实现基础功能：浏览词条、搜索、分类、缓存图片、个性化设置"
+                       x:Uid="/shiyong/textblock2"
+                       TextWrapping="Wrap" Margin="0,0,0,5"
+                       RelativePanel.Below="textblock1" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+            <TextBlock x:Name="textblock3" Text="2.基本可以替代原《萌娘百科UWP》应用"
+                       x:Uid="/shiyong/textblock3"
+                       TextWrapping="Wrap" Margin="0,0,0,5"               
+                       RelativePanel.Below="textblock2" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+        </RelativePanel>
+    </ScrollViewer>
+
+</Page>
