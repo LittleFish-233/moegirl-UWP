@@ -17,6 +17,26 @@ namespace moegirl_UWP.daima
         /// 默认搜索的地址
         /// </summary>
         public const string sousuo_wangzhi = "https://zh.moegirl.org.cn/index.php?title=Special:搜索";
+        /// <summary>
+        /// 默认登入的地址
+        /// </summary>
+        public const string dengru_wangzhi = "https://zh.moegirl.org.cn/index.php?title=Special:用户登录&returnto=Mainpage";
+        /// <summary>
+        /// 默认注册的地址
+        /// </summary>
+        public const string zhuce_wangzhi = "https://zh.moegirl.org.cn/index.php?title=Special:创建账户";
+        /// <summary>
+        /// 默认信息的地址
+        /// </summary>
+        public const string xinxi_wangzhi = "https://zh.moegirl.org.cn/Special:%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE";
+        /// <summary>
+        /// 默认留言的地址
+        /// </summary>
+        public const string liuyan_wangzhi = "https://zh.moegirl.org.cn/User_talk:";
+        /// <summary>
+        /// 默认用户主页的地址
+        /// </summary>
+        public const string yonghu_wangzhi = "https://zh.moegirl.org.cn/User:";
 
         public static Wangye_zhijie wangye_Zhijie = new Wangye_zhijie();
         public static Chitiao chitiao = new Chitiao();
@@ -24,6 +44,7 @@ namespace moegirl_UWP.daima
         public static Shezhi shezhi = new Shezhi();
         public static Sousuo sousuo = new Sousuo();
         public static Fenlei fenlei = new Fenlei();
+        public static Zhanghao zhanghao = new Zhanghao();
 
         /// <summary>
         /// 判断页面类型 1 主页 2 词条 3 分类 4 工具 5 其他 6讨论 7 帮助
@@ -72,6 +93,7 @@ namespace moegirl_UWP.daima
         public static async Task<int> ChushihuaAsync()
         {
             await shezhi_Quanju.ChushihuaAsync();
+            await zhanghao.ChushihuaAsync();
             return 0;
         }
     }

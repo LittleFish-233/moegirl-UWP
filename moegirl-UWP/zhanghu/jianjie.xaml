@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="moegirl_UWP.zhanghu.jianjie"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:moegirl_UWP.zhanghu"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    Background="Transparent">
+
+    <RelativePanel>
+        <WebView x:Name="webview1" DefaultBackgroundColor="Transparent"
+                 
+                 NavigationStarting="webview1_NavigationStarting"
+                 NavigationCompleted="webview1_NavigationCompleted"
+                 RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True"
+                 Visibility="Collapsed"/>
+        <muxc:ProgressRing IsActive="True" Height="120" Width="120" x:Name="progress1"
+                           Foreground="{ThemeResource SystemAccentColor}"
+                           RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+    </RelativePanel>
+</Page>

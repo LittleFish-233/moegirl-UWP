@@ -24,11 +24,22 @@ namespace moegirl_UWP.daima
         /// </summary>
         /// <param name="lianjie">链接</param>
         /// <returns>文件</returns>
-        public static async Task<StorageFile> xiazai_tupianAsync(Uri uri,string wenjianming)
+        public static async Task<StorageFile> xiazai_tupianAsync(Uri uri,string wenjianming,bool shifou_wangluo_bixu=false)
         {
-            return await GetLoacalFolderImage(uri, wenjianming) ??
-       await GetHttpImage(uri, wenjianming);
-
+            if (shifou_wangluo_bixu == true)
+            {
+                StorageFile file = await GetHttpImage(uri, wenjianming);
+                return file;
+            }
+            else
+            {
+                StorageFile file=await GetLoacalFolderImage(uri, wenjianming);
+                if(file==null)
+                {
+                    file = await GetHttpImage(uri, wenjianming);
+                }
+                return file;
+            }
         }
 
         /// <summary>
@@ -84,7 +95,7 @@ namespace moegirl_UWP.daima
             StorageFolder folder = await GetImageFolder();
             try
             {
-                StorageFile file = await folder.CreateFileAsync(wenjianming);
+                StorageFile file = await folder.CreateFileAsync(wenjianming,CreationCollisionOption.ReplaceExisting);
                 await FileIO.WriteBytesAsync(file, await ConvertIRandomAccessStreamByte(stream));
                 return file;
             }

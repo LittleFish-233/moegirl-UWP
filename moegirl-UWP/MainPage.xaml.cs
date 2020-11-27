@@ -29,6 +29,20 @@ namespace moegirl_UWP
             this.InitializeComponent();
             Loaded += MainPage_Loaded;
             daima.huancun.shezhi.Xianshitishi += Shezhi_Xianshitishi;
+            daima.huancun.zhanghao.Xianshitishi += Zhanghao_Xianshitishi;
+        }
+
+        private void Zhanghao_Xianshitishi(string a, int xuhao)
+        {
+            switch (xuhao)
+            {
+                case 1:
+                    ContentFrame.Navigate(typeof(chitiao.chitiao_dan));
+                    break;
+                case 2:
+                    ContentFrame.Navigate(typeof(chitiao.fenlei));
+                    break;
+            }
         }
 
         private async void Shezhi_Xianshitishi(string a, int xuhao)
@@ -73,7 +87,7 @@ namespace moegirl_UWP
                 {
                     case 1:
                         re1.Visibility = Visibility.Collapsed;
-                        image1.Opacity = 1;
+                        image1.Opacity = 0;
                         break;
                     case 2:
                         re1.Visibility = Visibility.Visible;
@@ -161,27 +175,15 @@ namespace moegirl_UWP
                         }
                         break;
                     case "dating":
-                        switch (daima.huancun.chitiao.danqian_yemian)
-                        {
-                            case 0:
-                                ContentFrame.Navigate(typeof(chitiao.zhu_chitiao));
-                                break;
-                            case 1:
-                                ContentFrame.Navigate(typeof(chitiao.shousuo_jieguo));
-                                break;
-                            case 2:
-                                ContentFrame.Navigate(typeof(chitiao.fenlei));
-                                break;
-                            case 3:
-                                ContentFrame.Navigate(typeof(chitiao.chitiao_dan));
-                                break;
-                        }
                         break;
                     case "shezhi":
                         ContentFrame.Navigate(typeof(shezhi.shezhi_zhu));
                         break;
                     case "guanyu":
                         ContentFrame.Navigate(typeof(guanyu.guanyu_zhu));
+                        break;
+                    case "zhanghu":
+                        ContentFrame.Navigate(typeof(zhanghu.dengru));
                         break;
                 }
             }

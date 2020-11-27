@@ -32,7 +32,7 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="moegirl_UWP.App">
       <uap:VisualElements
-        DisplayName="萌娘百科③"
+        DisplayName="萌娘百科-Moegirl"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
         Description="萌娘百科第三方UWP客户端 - 基于流畅设计体系"

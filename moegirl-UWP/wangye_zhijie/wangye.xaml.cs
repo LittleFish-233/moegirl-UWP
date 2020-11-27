@@ -83,6 +83,7 @@ namespace moegirl_UWP.wangye_zhijie
             }
             //隐藏进度条
             progress1.Visibility = Visibility.Collapsed;
+            
         }
 
         private void AppBarButton_Click(object sender, RoutedEventArgs e)

@@ -23,6 +23,7 @@ namespace moegirl_UWP.chitiao
     public sealed partial class chitiao_dan : Page
     {
         int danqian_xuanze = 0;
+        string biaoyi = "";
         public chitiao_dan()
         {
             this.InitializeComponent();
@@ -47,6 +48,7 @@ namespace moegirl_UWP.chitiao
         protected override void OnNavigatedTo(NavigationEventArgs e)//重写
         {
             daima.huancun.chitiao.danqian_yemian = 3;
+            textblock1.Text = biaoyi;
         }
         private async void Chitiao_Xianshitishi(string a, int xuhao)
         {
@@ -56,7 +58,7 @@ namespace moegirl_UWP.chitiao
                     ContentFrame.Navigate(typeof(xiangxixinxi));
                     break;
                 case 1:
-                    textblock1.Text = a;
+                    biaoyi= textblock1.Text = a;
                     break;
                 case 2:
                     pivot1.SelectedIndex = 0;

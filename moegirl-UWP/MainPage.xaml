@@ -23,6 +23,33 @@
                         <FontIcon Glyph="&#xE10F;"/>
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
+                <muxc:NavigationViewItemSeparator  Foreground="White"/>
+                <muxc:NavigationViewItem Content="词条检索" Tag="chitiao" Foreground="White">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE1CB;"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem Content="讨论组" Tag="taolunzhu" Foreground="White">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE781;"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem Content="创作中心" Tag="chuangzuo" Foreground="White">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xF7BB;"/>
+                    </muxc:NavigationViewItem.Icon>
+
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem Content="工具盒" Tag="gongju" Foreground="White">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE8F1;"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem Content="账户" Tag="zhanghu" Foreground="White">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE187;"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
                 <muxc:NavigationViewItemSeparator Foreground="White"/>
                 <muxc:NavigationViewItem Content="萌娘百科网页版"  Tag="wangye" Foreground="White">
                     <muxc:NavigationViewItem.Icon>
@@ -35,7 +62,12 @@
                         <FontIcon Glyph="&#xE115;"/>
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
-                <muxc:NavigationViewItem Content="关于" Tag="guanyu" Foreground="White">
+                <muxc:NavigationViewItem Content="用户手册"  Tag="yonghu" Foreground="White">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE82D;"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem Content="关于我们" Tag="guanyu" Foreground="White">
                     <muxc:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE946;"/>
                     </muxc:NavigationViewItem.Icon>

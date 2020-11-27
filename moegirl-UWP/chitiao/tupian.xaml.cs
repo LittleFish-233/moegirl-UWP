@@ -278,9 +278,17 @@ namespace moegirl_UWP.chitiao
             IAsyncAction asyncAction = Windows.System.Threading.ThreadPool.RunAsync(
                  (workItem) =>
                  {
-
+                     string linshi = "";
                      //处理链接
-                     string linshi = "https://commons.moegirl.org.cn/File:" + biaoti_linshi;
+                     if (biaoti_linshi.StartsWith("http") == false)
+                     {
+                         linshi = "https://commons.moegirl.org.cn/File:" + biaoti_linshi;
+
+                     }
+                     else
+                     {
+                         linshi = biaoti_linshi;
+                     }
                      //跳转网页
                      this.Invoke(() =>
                      {
@@ -309,12 +317,16 @@ namespace moegirl_UWP.chitiao
                          {
                              //解析
                              StorageFile file = await daima.Tupian_huancun.xiazai_tupianAsync(new Uri(dangqian_tupian_lianjie), biaoti_linshi);
-                             using (var stream = await file.OpenAsync(FileAccessMode.Read))
+                             if (file != null)
                              {
-                                 BitmapImage img = new BitmapImage();
-                                 await img.SetSourceAsync(stream);
-                                 //添加
-                                 image2.Source = img;
+                                 using (var stream = await file.OpenAsync(FileAccessMode.Read))
+                                 {
+                                     BitmapImage img = new BitmapImage();
+                                     await img.SetSourceAsync(stream);
+                                     //添加
+                                     image2.Source = img;
+
+                                 }
 
                              }
                              //关闭进度条
