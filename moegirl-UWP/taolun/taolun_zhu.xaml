@@ -1,13 +1,13 @@
 ﻿<Page
-    x:Class="moegirl_UWP.wangye_zhijie.wangye"
+    x:Class="moegirl_UWP.taolun.taolun_zhu"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:moegirl_UWP.wangye_zhijie"
+    xmlns:local="using:moegirl_UWP.taolun"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d"
-    Background="#00000000">
+    Background="Transparent">
 
     <RelativePanel>
         <CommandBar x:Name="command1"
@@ -20,11 +20,7 @@
             <AppBarButton Icon="Refresh" Label="刷新" Click="AppBarButton_Click_3"  RequestedTheme="Light"/>
             <AppBarButton Icon="Share" Label="分享" Click="AppBarButton_Click_4" RequestedTheme="Light" />
         </CommandBar>
-        <ScrollViewer RelativePanel.AlignRightWithPanel="True"
-                 RelativePanel.AlignLeftWithPanel="True"
-                 RelativePanel.AlignBottomWithPanel="True"
-                      RelativePanel.Below="command1" >
-            <WebView Name="webview1"
+        <WebView Name="webview1" RelativePanel.Below="command1"
                  DefaultBackgroundColor="Transparent"
                  NavigationStarting="webview1_FrameNavigationStarting"
                  NavigationCompleted="webview1_NavigationCompleted"
@@ -32,7 +28,6 @@
                  RelativePanel.AlignRightWithPanel="True"
                  RelativePanel.AlignLeftWithPanel="True"
                  RelativePanel.AlignBottomWithPanel="True"/>
-        </ScrollViewer>
         <muxc:ProgressBar x:Name="progress1" Visibility="Collapsed"  Foreground="{ThemeResource SystemAccentColor}"
              IsIndeterminate="True" ShowPaused="False" ShowError="False" 
                           RelativePanel.Below="command1"

@@ -131,7 +131,7 @@ namespace moegirl_UWP.zhanghu
                                         await daima.huancun.zhanghao.baocun_beijingtupianAsync(file);
                                         person1.ProfilePicture = await daima.huancun.zhanghao.huoqu_beijing_tupianAsync();
                                     }
-                                    catch (Exception exc){ }
+                                    catch{ }
                                 });
                             }
                             catch { }
@@ -196,27 +196,10 @@ namespace moegirl_UWP.zhanghu
                 case 0:
                     rext1.Visibility = Visibility.Visible;
                     rext2.Visibility = Visibility.Collapsed;
-                    rext3.Visibility = Visibility.Collapsed;
                     break;
                 case 1:
                     rext1.Visibility = Visibility.Collapsed;
                     rext2.Visibility = Visibility.Visible;
-                    rext3.Visibility = Visibility.Collapsed;
-                    break;
-                case 2:
-                    rext1.Visibility = Visibility.Collapsed;
-                    rext2.Visibility = Visibility.Collapsed;
-                    rext3.Visibility = Visibility.Visible;
-                    break;
-                case 3:
-                    rext1.Visibility = Visibility.Collapsed;
-                    rext2.Visibility = Visibility.Collapsed;
-                    rext3.Visibility = Visibility.Collapsed;
-                    break;
-                case 4:
-                    rext1.Visibility = Visibility.Collapsed;
-                    rext2.Visibility = Visibility.Collapsed;
-                    rext3.Visibility = Visibility.Collapsed;
                     break;
             }
         }

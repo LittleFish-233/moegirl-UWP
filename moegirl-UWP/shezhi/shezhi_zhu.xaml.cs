@@ -100,6 +100,7 @@ namespace moegirl_UWP.shezhi
             radio1.SelectedIndex = daima.huancun.shezhi_Quanju.zhuti_xuanzhe;
             radio2.SelectedIndex = daima.huancun.shezhi_Quanju.tupian_chuli;
             radio3.SelectedIndex = daima.huancun.shezhi_Quanju.wenzi_zhuti;
+            toggle2.IsOn = daima.huancun.shezhi_Quanju.shifou_liulanqi_touming;
 
             //计算缓存大小
             IAsyncAction asyncAction = Windows.System.Threading.ThreadPool.RunAsync(
@@ -422,6 +423,16 @@ namespace moegirl_UWP.shezhi
         private void RadioButton_Click_2(object sender, RoutedEventArgs e)
         {
             radio1_SelectionChanged(2);
+        }
+        //浏览器背景透明
+        private async void toggle2_Toggled(object sender, RoutedEventArgs e)
+        {
+            if (shifou_jiazai == false)
+            {
+                return;
+            }
+            daima.huancun.shezhi_Quanju.shifou_liulanqi_touming = toggle2.IsOn;
+            await daima.huancun.shezhi_Quanju.BaocunAsync();
         }
     }
 }

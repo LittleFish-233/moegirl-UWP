@@ -108,9 +108,6 @@ namespace moegirl_UWP.zhanghu
                         //获取标题
                         try
                         {
-                            string biaoti = await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('firstHeading').innerHTML;") });
-                            daima.huancun.chitiao.Kaishitishi(biaoti, 1);
-
                             await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('content').style.margin=0;") });
                             await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('content').style.border = 0; ") });
                             await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('content').style.backgroundColor='transparent';") });

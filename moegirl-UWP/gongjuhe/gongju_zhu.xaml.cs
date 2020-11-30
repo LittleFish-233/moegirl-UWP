@@ -16,30 +16,30 @@ using Windows.UI.Xaml.Navigation;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
-namespace moegirl_UWP.wangye_zhijie
+namespace moegirl_UWP.gongjuhe
 {
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class wangye : Page
+    public sealed partial class gongju_zhu : Page
     {
-        public wangye()
+        public gongju_zhu()
         {
             this.InitializeComponent();
             NavigationCacheMode = NavigationCacheMode.Enabled;
             Loaded += Wangye_Loaded;
-        }
 
+        }
         private async void Wangye_Loaded(object sender, RoutedEventArgs e)
         {
             try
             {
                 //导航到缓存地址
-                if (daima.huancun.wangye_Zhijie.huancun_wangzhi == "")
+                if (daima.huancun.gongjuhe.huancun_wangzhi == "")
                 {
-                    daima.huancun.wangye_Zhijie.huancun_wangzhi = daima.huancun.Wangzhi;
+                    daima.huancun.gongjuhe.huancun_wangzhi = daima.huancun.gongjuhe_wangzhi;
                 }
-                webview1.Navigate(new Uri(daima.huancun.wangye_Zhijie.huancun_wangzhi));
+                webview1.Navigate(new Uri(daima.huancun.gongjuhe.huancun_wangzhi));
 
             }
             catch (Exception exc)
@@ -47,7 +47,7 @@ namespace moegirl_UWP.wangye_zhijie
                 ContentDialog noWifiDialog = new ContentDialog
                 {
                     Title = "启动萌娘百科网页版失败",
-                    Content = "无法导航到 "+daima.huancun.wangye_Zhijie.huancun_wangzhi+"，详细信息："+exc.Message,
+                    Content = "无法导航到 " + daima.huancun.gongjuhe.huancun_wangzhi + "，详细信息：" + exc.Message,
                     CloseButtonText = "好的"
                 };
                 await noWifiDialog.ShowAsync();
@@ -67,9 +67,19 @@ namespace moegirl_UWP.wangye_zhijie
 
             try
             {
-
+                await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('content').style.margin=0;") });
+                await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('content').style.border = 0; ") });
                 await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('content').style.backgroundColor='transparent';") });
                 await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.body.style.background='transparent'; ") });
+                await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('footer').style.display='none';") });
+                await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('mw-page-base').style.display='none';") });
+                await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('siteNotice').style.display='none';") });
+                await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('mw-head').style.display='none';") });
+                await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('mw-panel').style.display='none';") });
+                await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('firstHeading').style.display='none';") });
+                await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('siteSub').style.display='none';") });
+                await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('contentSub').style.display='none';") });
+                await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('flowthread').style.display='none';") });
 
             }
             catch//某个步骤出错，继续循环
@@ -78,10 +88,10 @@ namespace moegirl_UWP.wangye_zhijie
             }
 
         }
-        private async void webview1_NavigationCompleted(WebView sender, WebViewNavigationCompletedEventArgs args)
+        private void webview1_NavigationCompleted(WebView sender, WebViewNavigationCompletedEventArgs args)
         {
             //记录当前链接
-            daima.huancun.wangye_Zhijie.huancun_wangzhi = args.Uri.AbsoluteUri;
+            daima.huancun.gongjuhe.huancun_wangzhi = args.Uri.AbsoluteUri;
             //检查是否可以导航
             if (webview1.CanGoBack)
             {
@@ -99,31 +109,21 @@ namespace moegirl_UWP.wangye_zhijie
             {
                 forward.IsEnabled = false;
             }
-            webview1.Height = Convert.ToInt32(await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.documentElement.scrollHeight.toString();") }));
             //处理网页
-            if (daima.huancun.shezhi_Quanju.shifou_liulanqi_touming == true)
-            {
-                chuli_wangye();
-
-            }
+            chuli_wangye();
             //隐藏进度条
             progress1.Visibility = Visibility.Collapsed;
-            //处理网页
-            if (daima.huancun.shezhi_Quanju.shifou_liulanqi_touming == true)
-            {
-
-                webview1.Visibility = Visibility.Visible;
-            }
+            webview1.Visibility = Visibility.Visible;
         }
 
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            webview1.Navigate(new Uri(daima.huancun.Wangzhi));
+            webview1.Navigate(new Uri(daima.huancun.gongjuhe_wangzhi));
         }
 
         private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
-            if(webview1.CanGoBack)
+            if (webview1.CanGoBack)
             {
                 webview1.GoBack();
             }
@@ -131,7 +131,7 @@ namespace moegirl_UWP.wangye_zhijie
 
         private void AppBarButton_Click_2(object sender, RoutedEventArgs e)
         {
-            if(webview1.CanGoForward)
+            if (webview1.CanGoForward)
             {
                 webview1.GoForward();
             }
@@ -146,7 +146,7 @@ namespace moegirl_UWP.wangye_zhijie
         {
             //复制链接
             DataPackage dp = new DataPackage();
-            dp.SetText(daima.huancun.wangye_Zhijie.huancun_wangzhi);
+            dp.SetText(daima.huancun.gongjuhe.huancun_wangzhi);
             Clipboard.SetContent(dp);
 
             ContentDialog noWifiDialog = new ContentDialog
@@ -161,12 +161,9 @@ namespace moegirl_UWP.wangye_zhijie
         private void webview1_FrameNavigationStarting(WebView sender, WebViewNavigationStartingEventArgs args)
         {
             progress1.Visibility = Visibility.Visible;
-            //处理网页
-            if (daima.huancun.shezhi_Quanju.shifou_liulanqi_touming == true)
-            {
-
-                webview1.Visibility = Visibility.Collapsed;
-            }
+            webview1.Visibility = Visibility.Collapsed;
         }
+
+
     }
 }

@@ -30,6 +30,17 @@ namespace moegirl_UWP
             Loaded += MainPage_Loaded;
             daima.huancun.shezhi.Xianshitishi += Shezhi_Xianshitishi;
             daima.huancun.zhanghao.Xianshitishi += Zhanghao_Xianshitishi;
+            daima.huancun.chuangzuo.Xianshitishi += Chuangzuo_Xianshitishi;
+        }
+
+        private void Chuangzuo_Xianshitishi(string a, int xuhao)
+        {
+            switch (xuhao)
+            {
+                case 1:
+                    ContentFrame.Navigate(typeof(zhanghu.dengru));
+                    break;
+            }
         }
 
         private void Zhanghao_Xianshitishi(string a, int xuhao)
@@ -174,8 +185,6 @@ namespace moegirl_UWP
                                 break;
                         }
                         break;
-                    case "dating":
-                        break;
                     case "shezhi":
                         ContentFrame.Navigate(typeof(shezhi.shezhi_zhu));
                         break;
@@ -184,6 +193,21 @@ namespace moegirl_UWP
                         break;
                     case "zhanghu":
                         ContentFrame.Navigate(typeof(zhanghu.dengru));
+                        break;
+                    case "taolunzhu":
+                        ContentFrame.Navigate(typeof(taolun.taolun_zhu));
+                        break;
+                    case "chuangzuo":
+                        ContentFrame.Navigate(typeof(chuangzuo.chuangzuo_zhu));
+                        break;
+                    case "gongju":
+                        ContentFrame.Navigate(typeof(gongjuhe.gongju_zhu));
+                        break;
+                    case "dating":
+                        ContentFrame.Navigate(typeof(zhuye.zhuye_zhu));
+                        break;
+                    case "yonghu":
+                        ContentFrame.Navigate(typeof(bangzhu.bangzhu_zhu));
                         break;
                 }
             }

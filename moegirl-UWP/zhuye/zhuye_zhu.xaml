@@ -5,10 +5,33 @@
     xmlns:local="using:moegirl_UWP.zhuye"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Transparent">
 
-    <Grid>
+    <ScrollViewer RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+        <RelativePanel>
+            <TextBlock x:Name="biaoti1" Text="欢" Margin="50,200,0,0" 
+                           x:Uid="/zhuye/biaoti1"
+                          FontSize="80.22" FontWeight="Bold" Foreground="{ThemeResource SystemAccentColor}" />
+            <TextBlock x:Name="biaoti2" Text="迎" FontSize="60.17" RelativePanel.AlignBottomWith="biaoti1"
+                           x:Uid="/zhuye/biaoti2"
+                           RelativePanel.RightOf="biaoti1" FontWeight="Bold"
+                           Foreground="{ThemeResource SystemAccentColor}" Margin="10,0,0,5"/>
+            <RelativePanel RelativePanel.Below="biaoti2" RelativePanel.AlignLeftWithPanel="True" 
+                           Margin="50,0,50,0" Height="2000"
+                           RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignBottomWithPanel="True">
+                <WebView x:Name="webview1" DefaultBackgroundColor="Transparent"
+                 
+                 NavigationStarting="webview1_NavigationStarting"
+                 NavigationCompleted="webview1_NavigationCompleted"
+                 RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True"
+                 Visibility="Collapsed"/>
+                <muxc:ProgressRing IsActive="True" Height="120" Width="120" Margin="0,50,0,0" x:Name="progress1"
+                           Foreground="{ThemeResource SystemAccentColor}"
+                           RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignTopWith="webview1"/>
+            </RelativePanel>
 
-    </Grid>
+        </RelativePanel>
+    </ScrollViewer>
 </Page>

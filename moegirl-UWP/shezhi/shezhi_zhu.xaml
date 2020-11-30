@@ -215,6 +215,13 @@
                     <RadioButton Content="白色"/>
                     <RadioButton Content="黑色"/>
                 </muxc:RadioButtons>
+                <TextBlock x:Name="textblock24" Text="浏览器模式背景透明"
+                       RelativePanel.Below="radio3" RequestedTheme="Light"
+                   FontSize="13" 
+                       Margin="60,12,0,0" />
+                <ToggleSwitch x:Name="toggle2" RelativePanel.Below="textblock24" Margin="60,0,0,0"
+                              Toggled="toggle2_Toggled"
+                 OffContent="不透明" OnContent="透明" IsOn="True" RequestedTheme="Light"/>
 
             </RelativePanel>
             <muxc:TeachingTip x:Name="ToggleThemeTeachingTip2" RequestedTheme="Light"

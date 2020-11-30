@@ -127,6 +127,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="bangzhu\bangzhu_zhu.xaml.cs">
+      <DependentUpon>bangzhu_zhu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="bangzhu\guanfang.xaml.cs">
+      <DependentUpon>guanfang.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="bangzhu\yonghu.xaml.cs">
+      <DependentUpon>yonghu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="chitiao\chitiao_dan.xaml.cs">
       <DependentUpon>chitiao_dan.xaml</DependentUpon>
     </Compile>
@@ -148,11 +157,17 @@
     <Compile Include="chitiao\zhu_chitiao.xaml.cs">
       <DependentUpon>zhu_chitiao.xaml</DependentUpon>
     </Compile>
+    <Compile Include="chuangzuo\chuangzuo_zhu.xaml.cs">
+      <DependentUpon>chuangzuo_zhu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="daima\Gongju.cs" />
     <Compile Include="daima\huancun.cs" />
     <Compile Include="daima\Shezhi_quanju.cs" />
     <Compile Include="daima\tupian_huancun.cs" />
     <Compile Include="daima\zhanghao.cs" />
+    <Compile Include="gongjuhe\gongju_zhu.xaml.cs">
+      <DependentUpon>gongju_zhu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="guanyu\gengxin.xaml.cs">
       <DependentUpon>gengxin.xaml</DependentUpon>
     </Compile>
@@ -171,6 +186,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="shezhi\shezhi_zhu.xaml.cs">
       <DependentUpon>shezhi_zhu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="taolun\taolun_zhu.xaml.cs">
+      <DependentUpon>taolun_zhu.xaml</DependentUpon>
     </Compile>
     <Compile Include="wangye_zhijie\wangye.xaml.cs">
       <DependentUpon>wangye.xaml</DependentUpon>
@@ -270,6 +288,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="bangzhu\bangzhu_zhu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="bangzhu\guanfang.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="bangzhu\yonghu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="chitiao\chitiao_dan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -298,6 +328,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="chuangzuo\chuangzuo_zhu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="gongjuhe\gongju_zhu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="guanyu\gengxin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -319,6 +357,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="shezhi\shezhi_zhu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="taolun\taolun_zhu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

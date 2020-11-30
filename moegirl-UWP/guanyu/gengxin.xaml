@@ -22,6 +22,18 @@
                        x:Uid="/shiyong/textblock3"
                        TextWrapping="Wrap" Margin="0,0,0,5"               
                        RelativePanel.Below="textblock2" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+            <TextBlock x:Name="textblock4" Text="2020/11/28   版本：1.1.12" FontWeight="Bold" 
+                       x:Uid="/shiyong/textblock1"
+                       FontSize="18"
+                       RelativePanel.Below="textblock3"  Margin="0,20,0,10"/>
+            <TextBlock x:Name="textblock5" Text="1.实现登入、注册账号功能"
+                       x:Uid="/shiyong/textblock2"
+                       TextWrapping="Wrap" Margin="0,0,0,5"
+                       RelativePanel.Below="textblock4" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+            <TextBlock x:Name="textblock6" Text="2.极其敷衍地完成了其他功能，未来会逐一优化套壳webview的现象"
+                       x:Uid="/shiyong/textblock3"
+                       TextWrapping="Wrap" Margin="0,0,0,5"               
+                       RelativePanel.Below="textblock5" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
         </RelativePanel>
     </ScrollViewer>
 

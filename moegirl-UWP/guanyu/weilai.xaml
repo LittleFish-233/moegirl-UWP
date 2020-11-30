@@ -13,7 +13,7 @@
             <TextBlock x:Name="textblock1" Text="近期规划" FontWeight="Bold" 
                        FontSize="18"
                        Margin="0,0,0,10"/>
-            <TextBlock x:Name="textblock2" Text="1.实现功能：登入系统、用户手册、工具箱"
+            <TextBlock x:Name="textblock2" Text="1.优化：登入系统、用户手册、工具箱"
                        TextWrapping="Wrap" Margin="0,0,0,5"
                        RelativePanel.Below="textblock1" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
             <TextBlock x:Name="textblock3" Text="2.适配夜间模式（页面字体颜色调整）"

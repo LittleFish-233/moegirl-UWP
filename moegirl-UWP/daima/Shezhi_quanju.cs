@@ -20,7 +20,7 @@ namespace moegirl_UWP.daima
         /// <summary>
         /// 客户端版本
         /// </summary>
-        public const int banben = 1;
+        public const int banben = 2;
         /// <summary>
         /// 是否分享图片时一并保存
         /// </summary>
@@ -69,6 +69,11 @@ namespace moegirl_UWP.daima
         /// 图片保存到的文件夹路径
         /// </summary>
         public string baocun_wenjianjia_lujing = "图片库";
+        /// <summary>
+        /// 浏览器模式背景是否透明
+        /// </summary>
+        public bool shifou_liulanqi_touming = true;
+
 
         public async Task<int> ChushihuaAsync()
         {
@@ -189,7 +194,8 @@ namespace moegirl_UWP.daima
                                         new JProperty("tupian_chuli", tupian_chuli),
                                         new JProperty("toumingdu", toumingdu.ToString()),
                                         new JProperty("wenzi_zhuti", wenzi_zhuti),
-                                        new JProperty("baocun_wenjianjia_lujing", baocun_wenjianjia_lujing)).ToString();
+                                        new JProperty("baocun_wenjianjia_lujing", baocun_wenjianjia_lujing),
+                                        new JProperty("shifou_liulanqi_touming", shifou_liulanqi_touming)).ToString();
 
                 //新建文件
                 await FileIO.WriteTextAsync(await huoqu_shezhi_wenjianAsync(true), data);
@@ -277,6 +283,10 @@ namespace moegirl_UWP.daima
                     {
                         baocun_wenjianjia_lujing = result[13];
                     }
+                    if (result[14] != "")
+                    {
+                        shifou_liulanqi_touming = bool.Parse(result[14]);
+                    }
                 }
                 catch
                 {
@@ -310,6 +320,8 @@ namespace moegirl_UWP.daima
             {
                 case 1:
                     return Peizhi_jiexi_1(str);
+                case 2:
+                    return Peizhi_jiexi_2(str);
                 default:
                     return null;
             }
@@ -352,6 +364,49 @@ namespace moegirl_UWP.daima
             re[11] = toumingdu.ToString();
             re[12] = wenzi_zhuti.ToString();
             re[13] = baocun_wenjianjia_lujing.ToString();
+
+            return re;
+        }
+        /// <summary>
+        /// 解析读取的配置文件 版本2
+        /// </summary>
+        /// <param name="str">配置文件json字符串</param>
+        /// <returns>按照最新的变量列表返回字符串数组</returns>
+        private static string[] Peizhi_jiexi_2(string str)
+        {
+            var json = (JObject)JsonConvert.DeserializeObject(str);
+            var shifou_fenxiang_baocun = json["shifou_fenxiang_baocun"];
+            var baocun_wenjianjia = json["baocun_wenjianjia"];
+            var zuida_huancun = json["zuida_huancun"];
+            var huancun_qingli_fangshi = json["huancun_qingli_fangshi"];
+            var zhuti_xuanzhe = json["zhuti_xuanzhe"];
+            var beijing_tupian = json["beijing_tupian"];
+            var A = json["A"];
+            var R = json["R"];
+            var G = json["G"];
+            var B = json["B"];
+            var tupian_chuli = json["tupian_chuli"];
+            var toumingdu = json["toumingdu"];
+            var wenzi_zhuti = json["wenzi_zhuti"];
+            var baocun_wenjianjia_lujing = json["baocun_wenjianjia_lujing"];
+            var shifou_liulanqi_touming = json["shifou_liulanqi_touming"];
+            //保存结果
+            string[] re = new string[15];
+            re[0] = shifou_fenxiang_baocun.ToString();
+            re[1] = baocun_wenjianjia.ToString();
+            re[2] = zuida_huancun.ToString();
+            re[3] = huancun_qingli_fangshi.ToString();
+            re[4] = zhuti_xuanzhe.ToString();
+            re[5] = beijing_tupian.ToString();
+            re[6] = A.ToString();
+            re[7] = R.ToString();
+            re[8] = G.ToString();
+            re[9] = B.ToString();
+            re[10] = tupian_chuli.ToString();
+            re[11] = toumingdu.ToString();
+            re[12] = wenzi_zhuti.ToString();
+            re[13] = baocun_wenjianjia_lujing.ToString();
+            re[14] = shifou_liulanqi_touming.ToString();
 
             return re;
         }

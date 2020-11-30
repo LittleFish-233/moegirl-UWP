@@ -71,8 +71,6 @@
                    RelativePanel.AlignBottomWith="pivot1" Margin="312,0,0,2"/>
         <Rectangle Height="2" Width="48" Fill="{ThemeResource SystemAccentColor}" x:Name="rext2"
                    RelativePanel.AlignBottomWith="pivot1" Margin="384,0,0,2"/>
-        <Rectangle Height="2" Width="96" Fill="{ThemeResource SystemAccentColor}" x:Name="rext3"
-                   RelativePanel.AlignBottomWith="pivot1" Margin="456,0,0,2"/>
         <Pivot x:Name="pivot1" SelectedIndex="0" RequestedTheme="Light" RelativePanel.RightOf="person1"
                Margin="30,0,0,0"
              SelectionChanged="Pivot_SelectionChanged">
@@ -80,8 +78,7 @@
             </PivotItem>
             <PivotItem Header="留言">
             </PivotItem>
-            <PivotItem Header="历史记录">
-            </PivotItem>
+
         </Pivot>
         <Frame x:Name="ContentFrame" Margin="40,5,0,0" Background="#00000000"
                RelativePanel.AlignBottomWithPanel="True" RelativePanel.RightOf="person1" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="pivot1">

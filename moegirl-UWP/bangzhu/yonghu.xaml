@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="moegirl_UWP.bangzhu.yonghu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:moegirl_UWP.bangzhu"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Transparent">
+
+    <ScrollViewer>
+        <RelativePanel Margin="0,0,0,0">
+            <TextBlock x:Name="textblock1" Text="被和谐的内容" FontWeight="Bold" 
+                       x:Uid="/shiyong/textblock1"
+                       FontSize="18"
+                       Margin="0,0,0,10"/>
+            <TextBlock x:Name="textblock2" Text="评论：无法在除网页模式外查看评论，也无法发表评论。"
+
+                       TextWrapping="Wrap" Margin="10,0,0,5"
+                       RelativePanel.Below="textblock1" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+            <TextBlock x:Name="textblock3" Text="图片：在词条详情页可以直接点击图片查看大图，但不建议再次点击图片，这样会直接进入浏览器。在图片页面点击查看大图时，使用分享按钮可以直接将图片保存到默认位置。"
+
+                       TextWrapping="Wrap" Margin="10,0,0,5"               
+                       RelativePanel.Below="textblock2" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+            <TextBlock x:Name="textblock4" Text="编辑：移除了网页版之外的途径，计划未来实现本地化编辑"
+
+                       TextWrapping="Wrap" Margin="10,0,0,5"
+                       RelativePanel.Below="textblock3" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+            <TextBlock x:Name="textblock5" Text="注册：同一个邮箱注册两个账号的操作请到网页版中执行"
+                       TextWrapping="Wrap" Margin="10,0,0,5"
+                       RelativePanel.Below="textblock4" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+            <TextBlock x:Name="textblock6" Text="我们和谐这些内容纯粹是因为自身实力不行，将会在未来添加回来！！！" 
+                       Foreground="Red"
+                       TextWrapping="Wrap" Margin="10,0,0,5"
+                       RelativePanel.Below="textblock5" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+            <TextBlock x:Name="textblock7" Text="使用的技术" FontWeight="Bold" 
+                       FontSize="18"
+                       Margin="0,20,0,10" RelativePanel.Below="textblock6"/>
+            <TextBlock x:Name="textblock8" Text="通过Webview注入JS来移除特定的元素和背景，并模拟用户输入来完成特定动作。"
+                       TextWrapping="Wrap" Margin="10,0,0,5"
+                       RelativePanel.Below="textblock7" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+        </RelativePanel>
+    </ScrollViewer>
+</Page>

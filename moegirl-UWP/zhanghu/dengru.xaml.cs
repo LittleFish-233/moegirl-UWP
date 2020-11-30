@@ -90,9 +90,9 @@ namespace moegirl_UWP.zhanghu
             }
         }
 
-        private void Hyperlink_Click(Windows.UI.Xaml.Documents.Hyperlink sender, Windows.UI.Xaml.Documents.HyperlinkClickEventArgs args)
+        private async void Hyperlink_Click(Windows.UI.Xaml.Documents.Hyperlink sender, Windows.UI.Xaml.Documents.HyperlinkClickEventArgs args)
         {
-
+            await Launcher.LaunchUriAsync(new Uri("https://zh.moegirl.org.cn/Special:%E9%87%8D%E7%BD%AE%E5%AF%86%E7%A0%81"));
         }
         /// <summary>
         /// 等待网页加载完毕
@@ -121,7 +121,6 @@ namespace moegirl_UWP.zhanghu
                 {
                     re1.Visibility = Visibility.Collapsed;
                     progress1.IsActive = true;
-                    re1.Visibility = Visibility.Collapsed;
                 });
             }
             else
@@ -129,7 +128,6 @@ namespace moegirl_UWP.zhanghu
                 this.Invoke(() =>
                 {
                     progress1.IsActive = false;
-                    webview1.Visibility = Visibility.Visible;
                     re1.Visibility = Visibility.Visible;
                 });
             }

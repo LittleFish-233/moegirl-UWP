@@ -8,10 +8,10 @@
     mc:Ignorable="d"
     Background="Transparent">
     <RelativePanel>
-        <TextBlock x:Name="textblock9" Text="应用版本号:  1.0.0"
+        <TextBlock x:Name="textblock9" Text="应用版本号:  1.1.12"
                    x:Uid="/guanyu/textblock9"
                    Margin="0,0,5,0"/>
-        <TextBlock x:Name="textblock10" Text="最后更新日期:  2020/11/24 7:28"
+        <TextBlock x:Name="textblock10" Text="最后更新日期:  2020/11/28 13:38"
                    x:Uid="/guanyu/textblock10"
                    RelativePanel.Below="textblock9" 
                    Margin="0,15,5,0"/>
@@ -25,20 +25,25 @@
                    Margin="0,15,5,0"/>
         <HyperlinkButton  RelativePanel.RightOf="textblock12" Margin="0,0,0,-6" Foreground="{ThemeResource SystemAccentColor}"
                        RelativePanel.AlignBottomWith="textblock12" Content="LittleFishTenyears@outlook.com" Click="HyperlinkButton_Click"/>
+        <TextBlock x:Name="textblock16" Text="个人主页:  "
+                   RelativePanel.Below="textblock12" TextWrapping="Wrap"
+                   x:Uid="/guanyu/textblock16"
+                   Margin="0,15,5,0" FontWeight="Light"/>
+        <HyperlinkButton  RelativePanel.RightOf="textblock16" Margin="0,0,0,-6" Foreground="{ThemeResource SystemAccentColor}"
+                       RelativePanel.AlignBottomWith="textblock16" Content="https://zh.moegirl.org.cn/User:沙雕の方块" NavigateUri="https://zh.moegirl.org.cn/User:沙雕の方块"/>
 
         <TextBlock x:Name="textblock14" Text="QQ:  1278490989"
-                   RelativePanel.Below="textblock12"
+                   RelativePanel.Below="textblock16"
                    x:Uid="/guanyu/textblock14"   
                    Margin="0,15,5,0"/>
         <TextBlock x:Name="textblock15" Text="二次元编程会社:  955456615"
                    x:Uid="/guanyu/textblock15"
                    RelativePanel.Below="textblock14" TextWrapping="Wrap"
                    Margin="0,15,5,0"/>
-        <TextBlock x:Name="textblock16" Text="萌娘百科:  "
+        <TextBlock x:Name="textblock17" Text="GitHub地址:  "
                    RelativePanel.Below="textblock15" TextWrapping="Wrap"
-                   x:Uid="/guanyu/textblock16"
                    Margin="0,15,5,0" FontWeight="Light"/>
-        <HyperlinkButton  RelativePanel.RightOf="textblock16" Margin="0,0,0,-6" Foreground="{ThemeResource SystemAccentColor}"
-                       RelativePanel.AlignBottomWith="textblock16" Content="https://zh.moegirl.org.cn/" NavigateUri="https://zh.moegirl.org.cn/"/>
+        <HyperlinkButton  RelativePanel.RightOf="textblock17" Margin="0,0,0,-6" Foreground="{ThemeResource SystemAccentColor}"
+                       RelativePanel.AlignBottomWith="textblock17" Content="https://github.com/LittleFish-233/moegirl-UWP" NavigateUri="https://github.com/LittleFish-233/moegirl-UWP"/>
     </RelativePanel>
 </Page>

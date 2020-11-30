@@ -37,6 +37,22 @@ namespace moegirl_UWP.daima
         /// 默认用户主页的地址
         /// </summary>
         public const string yonghu_wangzhi = "https://zh.moegirl.org.cn/User:";
+        /// <summary>
+        /// 默认讨论版的地址
+        /// </summary>
+        public const string taolun_wangzhi = "https://zh.moegirl.org.cn/萌娘百科_talk:讨论版";
+        /// <summary>
+        /// 默认监视列表的地址
+        /// </summary>
+        public const string jianshi_wangzhi = "https://zh.moegirl.org.cn/Special:监视列表";
+        /// <summary>
+        /// 默认工具盒的地址
+        /// </summary>
+        public const string gongjuhe_wangzhi = "https://zh.moegirl.org.cn/Special:特殊页面";
+        /// <summary>
+        /// 默认帮助的地址
+        /// </summary>
+        public const string bangzhu_wangzhi = "https://zh.moegirl.org.cn/Category:帮助";
 
         public static Wangye_zhijie wangye_Zhijie = new Wangye_zhijie();
         public static Chitiao chitiao = new Chitiao();
@@ -45,6 +61,10 @@ namespace moegirl_UWP.daima
         public static Sousuo sousuo = new Sousuo();
         public static Fenlei fenlei = new Fenlei();
         public static Zhanghao zhanghao = new Zhanghao();
+        public static Taolun taolun = new Taolun();
+        public static Chuangzuo chuangzuo = new Chuangzuo();
+        public static Gongjuhe gongjuhe = new Gongjuhe();
+        public static Bangzhu bangzhu = new Bangzhu();
 
         /// <summary>
         /// 判断页面类型 1 主页 2 词条 3 分类 4 工具 5 其他 6讨论 7 帮助
@@ -53,33 +73,41 @@ namespace moegirl_UWP.daima
         /// <returns></returns>
         public static int panduan_leixing(string uri)
         {
-            if(uri.StartsWith(Wangzhi)==false)
+            if (uri.StartsWith(Wangzhi) == false)
             {
                 return 5;
             }
             else
             {
-                if(uri==Wangzhi)
+                if (uri == Wangzhi)
                 {
                     return 1;
                 }
                 else
                 {
-                    if(uri.StartsWith(Wangzhi+ "萌娘百科_talk:讨论版")==true)
+                    if (uri == Wangzhi+"Mainpage")
                     {
-                        return 6;
+                        return 1;
                     }
-                    if (uri.StartsWith(Wangzhi + "Help:") == true)
+                    else
                     {
-                        return 7;
-                    }
-                    if (uri.StartsWith(Wangzhi + "Category:") == true)
-                    {
-                        return 3;
-                    }
-                    if (uri.StartsWith(Wangzhi + "Special:") == true)
-                    {
-                        return 4;
+                        if (uri.StartsWith(Wangzhi + "萌娘百科_talk:讨论版") == true)
+                        {
+                            return 6;
+                        }
+                        if (uri.StartsWith(Wangzhi + "Help:") == true)
+                        {
+                            return 7;
+                        }
+                        if (uri.StartsWith(Wangzhi + "Category:") == true)
+                        {
+                            return 3;
+                        }
+                        if (uri.StartsWith(Wangzhi + "Special:") == true)
+                        {
+                            return 4;
+                        }
+
                     }
                 }
             }
@@ -104,6 +132,63 @@ namespace moegirl_UWP.daima
         /// 网页版 缓存的网址
         /// </summary>
         public string huancun_wangzhi = "";
+    }
+    /// <summary>
+    /// 讨论版
+    /// </summary>
+    public class Taolun
+    {
+        /// <summary>
+        /// 网页版 缓存的网址
+        /// </summary>
+        public string huancun_wangzhi = "";
+    }
+    /// <summary>
+    /// 帮助
+    /// </summary>
+    public class Bangzhu
+    {
+        /// <summary>
+        /// 网页版 缓存的网址
+        /// </summary>
+        public string huancun_wangzhi = "";
+    }
+    /// <summary>
+    /// 工具盒
+    /// </summary>
+    public class Gongjuhe
+    {
+        /// <summary>
+        /// 网页版 缓存的网址
+        /// </summary>
+        public string huancun_wangzhi = "";
+    }
+    /// <summary>
+    /// 创作中心版
+    /// </summary>
+    public class Chuangzuo
+    {
+        /// <summary>
+        /// 网页版 缓存的网址
+        /// </summary>
+        public string huancun_wangzhi = "";
+        /// <summary>
+        /// 委托
+        /// </summary>
+        /// <param name="a">信息</param>
+        /// <param name="xuhao">序号 用作匹配</param>
+        public delegate void delegateRun(string a, int xuhao);
+        //定义一个事件
+        public event delegateRun Xianshitishi;
+        /// <summary>
+        /// 触发事件
+        /// </summary>
+        /// <param name="a">信息</param>
+        /// <param name="xuhao">序号 用作匹配 1更改背景图片 2更换图片处理方式 3更换主题</param>
+        public void Kaishitishi(string a, int xuhao)
+        {
+            Xianshitishi?.Invoke(a, xuhao);
+        }
     }
 
     public class Chitiao
