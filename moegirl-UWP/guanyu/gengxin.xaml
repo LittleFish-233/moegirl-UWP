@@ -22,6 +22,7 @@
                        x:Uid="/shiyong/textblock3"
                        TextWrapping="Wrap" Margin="0,0,0,5"               
                        RelativePanel.Below="textblock2" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+          
             <TextBlock x:Name="textblock4" Text="2020/11/28   版本：1.1.12" FontWeight="Bold" 
                        x:Uid="/shiyong/textblock1"
                        FontSize="18"
@@ -34,6 +35,21 @@
                        x:Uid="/shiyong/textblock3"
                        TextWrapping="Wrap" Margin="0,0,0,5"               
                        RelativePanel.Below="textblock5" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+
+
+            <TextBlock x:Name="textblock7" Text="2021/09/17   版本：1.1.16" FontWeight="Bold" 
+                       x:Uid="/shiyong/textblock1"
+                       FontSize="18"
+                       RelativePanel.Below="textblock6"  Margin="0,20,0,10"/>
+            <TextBlock x:Name="textblock8" Text="1.修复第一次登入账户时，简介页面显示未命名用户的bug"
+                       x:Uid="/shiyong/textblock2"
+                       TextWrapping="Wrap" Margin="0,0,0,5"
+                       RelativePanel.Below="textblock7" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+            <TextBlock x:Name="textblock9" Text="2.根据萌娘百科网站升级优化显示样式"
+                       x:Uid="/shiyong/textblock3"
+                       TextWrapping="Wrap" Margin="0,0,0,5"               
+                       RelativePanel.Below="textblock8" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+
         </RelativePanel>
     </ScrollViewer>
 

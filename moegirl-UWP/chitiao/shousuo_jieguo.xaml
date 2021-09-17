@@ -33,7 +33,7 @@
                     Margin="10,0,0,0"/>
         </RelativePanel>
         <WebView x:Name="webview1" DefaultBackgroundColor="Transparent"
-                 Margin="38,10,38,0"
+                 Margin="20,15,38,0"
                  NavigationStarting="webview1_NavigationStarting"
                  NavigationCompleted="webview1_NavigationCompleted"
                  RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="re1"

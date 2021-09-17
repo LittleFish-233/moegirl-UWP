@@ -8,10 +8,10 @@
     mc:Ignorable="d"
     Background="Transparent">
     <RelativePanel>
-        <TextBlock x:Name="textblock9" Text="应用版本号:  1.1.12"
+        <TextBlock x:Name="textblock9" Text="应用版本号:  1.1.16"
                    x:Uid="/guanyu/textblock9"
                    Margin="0,0,5,0"/>
-        <TextBlock x:Name="textblock10" Text="最后更新日期:  2020/11/28 13:38"
+        <TextBlock x:Name="textblock10" Text="最后更新日期:  2021/09/17 15:03"
                    x:Uid="/guanyu/textblock10"
                    RelativePanel.Below="textblock9" 
                    Margin="0,15,5,0"/>

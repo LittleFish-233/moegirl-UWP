@@ -115,6 +115,8 @@ namespace moegirl_UWP.zhanghu
                         textblock7.Text = "电子邮件：" + daima.huancun.zhanghao.dianzi_youjian;
                         //刷新头像
                         await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementsByClassName('mw-input')[5].children[1].click();") });
+                        //导航到用户简介
+                        ContentFrame.Navigate(typeof(jianjie));
                         IAsyncAction asyncAction = Windows.System.Threading.ThreadPool.RunAsync(
                         async (workItem) =>
                         {
@@ -168,7 +170,11 @@ namespace moegirl_UWP.zhanghu
             switch (pivot1.SelectedIndex)
             {
                 case 0:
-                    ContentFrame.Navigate(typeof(jianjie));
+                    if (daima.huancun.zhanghao.yonghuming != "未命名用户-12138")
+                    {
+                        ContentFrame.Navigate(typeof(jianjie));
+                    }
+                  
                     break;
                 case 1:
                     ContentFrame.Navigate(typeof(liuyan));

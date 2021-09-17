@@ -70,6 +70,8 @@ namespace moegirl_UWP.wangye_zhijie
 
                 await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('content').style.backgroundColor='transparent';") });
                 await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.body.style.background='transparent'; ") });
+                await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.body.style.overflowY='hidden'; ") });
+                await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('mw-panel').style.textShadow='none';") });
 
             }
             catch//某个步骤出错，继续循环

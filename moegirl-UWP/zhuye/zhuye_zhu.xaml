@@ -11,7 +11,7 @@
 
     <ScrollViewer RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
         <RelativePanel>
-            <TextBlock x:Name="biaoti1" Text="欢" Margin="50,200,0,0" 
+            <TextBlock x:Name="biaoti1" Text="欢" Margin="88,200,0,0" 
                            x:Uid="/zhuye/biaoti1"
                           FontSize="80.22" FontWeight="Bold" Foreground="{ThemeResource SystemAccentColor}" />
             <TextBlock x:Name="biaoti2" Text="迎" FontSize="60.17" RelativePanel.AlignBottomWith="biaoti1"

@@ -9,9 +9,9 @@
   <Identity
     Name="418TheLastMagician.-Moegirl"
     Publisher="CN=FE9FCCA6-5EE3-4735-B5F0-5DEDC05969DA"
-    Version="1.1.14.0" />
+    Version="1.1.16.0" />
 
-  <mp:PhoneIdentity PhoneProductId="242067ec-4b06-4022-80c4-479a7affcb9e" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="459e59bd-59c8-4c8b-8618-2d0f09af0d32" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>萌娘百科-Moegirl</DisplayName>

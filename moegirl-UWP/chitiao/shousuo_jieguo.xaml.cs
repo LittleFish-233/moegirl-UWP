@@ -115,7 +115,7 @@ namespace moegirl_UWP.chitiao
                             await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.body.style.background='transparent'; ") });
                             await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('footer').style.display='none';") });
                             await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('search').style.display='none';") });
-                            await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementsByClassName('mw-search-exists')[0].style.display='none';") });
+                            //await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementsByClassName('mw-search-exists')[0].style.display='none';") });
                             await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementsByClassName('mw-indicators mw-body-content')[0].style.display='none';") });
 
                             await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('mw-indicator-mw-helplink').style.display='none';") });
@@ -125,6 +125,7 @@ namespace moegirl_UWP.chitiao
                             await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('mw-panel').style.display='none';") });
                             await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('firstHeading').style.display='none';") });
                             await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('contentSub').style.display='none';") });
+                            await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('mw-navigation').style.display='none';") });
                         }
                         catch
                         { }
