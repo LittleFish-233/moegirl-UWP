@@ -60,7 +60,7 @@ namespace moegirl_UWP.daima
         /// <summary>
         /// 不透明度
         /// </summary>
-        public double toumingdu = 1;
+        public double toumingdu = 0.4;
         /// <summary>
         /// 文字颜色主题 0明亮 1黑暗
         /// </summary>
@@ -132,9 +132,9 @@ namespace moegirl_UWP.daima
                 switch (zhuti_xuanzhe)
                 {
                     case 0:
-                        return new BitmapImage(new Uri("ms-appx:tupian/1.png"));
+                        return new BitmapImage(new Uri("ms-appx:tupian/7.png"));
                     case 1:
-                        return new BitmapImage(new Uri("ms-appx:tupian/2.png"));
+                        return new BitmapImage(new Uri("ms-appx:tupian/8.png"));
                     default:
                         return await huoqu_beijing_tupianAsync();
                 }

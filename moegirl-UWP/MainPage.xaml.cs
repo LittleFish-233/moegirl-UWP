@@ -92,8 +92,8 @@ namespace moegirl_UWP
             BitmapImage img =await daima.huancun.shezhi_Quanju.huoqu_zhuti_tupianAsync();
             image1.Source = img;
             //处理图片
-            if (daima.huancun.shezhi_Quanju.zhuti_xuanzhe == 2)
-            {
+           /* if (daima.huancun.shezhi_Quanju.zhuti_xuanzhe == 2)
+            {*/
                 switch (daima.huancun.shezhi_Quanju.tupian_chuli)
                 {
                     case 1:
@@ -105,7 +105,7 @@ namespace moegirl_UWP
                         re1.Opacity = daima.huancun.shezhi_Quanju.toumingdu;
                         image1.Opacity = 1;
                         break;
-                }
+                //}
             }
             IAsyncAction asyncAction = Windows.System.Threading.ThreadPool.RunAsync(
             async (workItem) =>
@@ -161,7 +161,6 @@ namespace moegirl_UWP
             }
             else
             {
-
                 Microsoft.UI.Xaml.Controls.NavigationViewItem item = args.SelectedItem as Microsoft.UI.Xaml.Controls.NavigationViewItem;
                 switch (item.Tag)
                 {
@@ -169,21 +168,21 @@ namespace moegirl_UWP
                         ContentFrame.Navigate(typeof(wangye_zhijie.wangye));
                         break;
                     case "chitiao":
-                        switch (daima.huancun.chitiao.danqian_yemian)
-                        {
-                            case 0:
-                                ContentFrame.Navigate(typeof(chitiao.zhu_chitiao));
-                                break;
-                            case 1:
-                                ContentFrame.Navigate(typeof(chitiao.shousuo_jieguo));
-                                break;
-                            case 2:
-                                ContentFrame.Navigate(typeof(chitiao.fenlei));
-                                break;
-                            case 3:
-                                ContentFrame.Navigate(typeof(chitiao.chitiao_dan));
-                                break;
-                        }
+                        /*  switch (daima.huancun.chitiao.danqian_yemian)
+                          {
+                              case 0:*/
+                        ContentFrame.Navigate(typeof(chitiao.zhu_chitiao));
+                        /* break;
+                   case 1:
+                       ContentFrame.Navigate(typeof(chitiao.shousuo_jieguo));
+                       break;
+                   case 2:
+                       ContentFrame.Navigate(typeof(chitiao.fenlei));
+                       break;
+                   case 3:
+             ContentFrame.Navigate(typeof(chitiao.chitiao_dan));
+                  break;
+            }*/
                         break;
                     case "shezhi":
                         ContentFrame.Navigate(typeof(shezhi.shezhi_zhu));

@@ -10,13 +10,21 @@
     Background="#00000000">
 
     <RelativePanel>
-        <WebView x:Name="webview1" DefaultBackgroundColor="Transparent"
-                 
+        <ScrollViewer RelativePanel.AlignRightWithPanel="True"
+                 RelativePanel.AlignLeftWithPanel="True"
+                 RelativePanel.AlignBottomWithPanel="True"
+                      RelativePanel.AlignTopWithPanel="True">
+            <WebView Name="webview1"
+                 DefaultBackgroundColor="Transparent"
                  NavigationStarting="webview1_NavigationStarting"
                  NavigationCompleted="webview1_NavigationCompleted"
-                 RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
-                 RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True"
-                 Visibility="Collapsed"/>
+                 RelativePanel.AlignRightWithPanel="True"
+                 RelativePanel.AlignLeftWithPanel="True"
+                 RelativePanel.AlignTopWithPanel="True"
+                 RelativePanel.AlignBottomWithPanel="True"
+                     Visibility="Collapsed"/>
+        </ScrollViewer>
+
         <muxc:ProgressRing IsActive="True" Height="120" Width="120" x:Name="progress1"
                            Foreground="{ThemeResource SystemAccentColor}"
                            RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>

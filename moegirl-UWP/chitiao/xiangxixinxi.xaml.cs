@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -143,7 +145,7 @@ namespace moegirl_UWP.chitiao
         /// <summary>
         /// 导航成功后格式化页面
         /// </summary>
-        private void chuli_wangye()
+        private async void chuli_wangye()
         {
             int jishu = 0;
             //修改元素
@@ -201,7 +203,16 @@ namespace moegirl_UWP.chitiao
                         }
                         catch
                         { }
+                        try
+                        {
+                            await webview1.InvokeScriptAsync("eval", new string[] { "var style = document.createElement('style');style.type = 'text/css';style.appendChild(document.createTextNode('body {font-size: 108%;}a, a:visited {text-decoration: none!important;color: #3366cc;}a:hover { text-decoration: none!important;  color: #2a4b8d;} a.new{ color: #BA0000!important;}'));" });
+                            await webview1.InvokeScriptAsync("eval", new string[] { String.Format("var head = document.getElementsByTagName('head')[0];") });
+                            await webview1.InvokeScriptAsync("eval", new string[] { String.Format("head.appendChild(style);") });
 
+                        }
+                        catch (Exception exc)
+                        {
+                        }
                         //全部执行完毕退出循环
                         shifou_xiugai = true;
 
@@ -214,6 +225,18 @@ namespace moegirl_UWP.chitiao
                 //避免cpu占用过高
                 System.Threading.Thread.Sleep(100);
                 jishu++;
+            }
+            //设置删除元素的高度
+            try
+            {
+                this.Invoke(async () =>
+                {
+                    webview1.Height = Convert.ToInt32(await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.documentElement.scrollHeight.toString();") })) / 2;
+                });
+            }
+            catch (Exception ex)
+            {
+
             }
         }
         /// <summary>
@@ -275,9 +298,10 @@ namespace moegirl_UWP.chitiao
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Priority, () => { action(); });
         }
 
-        private void webview1_NavigationCompleted(WebView sender, WebViewNavigationCompletedEventArgs args)
+        private async void webview1_NavigationCompleted(WebView sender, WebViewNavigationCompletedEventArgs args)
         {
             shifou_jiazai = true;
+           
             //检查列表是否为空
             if (daima.huancun.chitiao.daohan_duifa.Count != 0)
             {

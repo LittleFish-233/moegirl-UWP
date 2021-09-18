@@ -35,7 +35,10 @@
             </PivotItem>
         </Pivot>
         <Frame x:Name="ContentFrame" Margin="0,5,0,0" Background="#00000000"
-               RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="pivot1">
+               RelativePanel.AlignBottomWithPanel="True"
+               RelativePanel.AlignLeftWithPanel="True"
+               RelativePanel.AlignRightWithPanel="True" 
+               RelativePanel.Below="pivot1">
             <Frame.ContentTransitions>
                 <TransitionCollection>
                     <NavigationThemeTransition  />

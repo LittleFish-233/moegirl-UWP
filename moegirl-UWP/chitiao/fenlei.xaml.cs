@@ -115,6 +115,7 @@ namespace moegirl_UWP.chitiao
                         }
                         try
                         {
+                            await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('mw-navigation').style.display='none';") });
                             await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('mw-indicator-mw-helplink').style.display='none';") });
                             await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('mw-page-base').style.display='none';") });
                             await webview1.InvokeScriptAsync("eval", new string[] { String.Format("document.getElementById('siteNotice').style.display='none';") });

@@ -78,7 +78,16 @@ namespace moegirl_UWP.wangye_zhijie
             {
 
             }
+            try
+            {
+                await webview1.InvokeScriptAsync("eval", new string[] { "var style = document.createElement('style');style.type = 'text/css';style.appendChild(document.createTextNode('body {font-size: 108%;}a, a:visited {text-decoration: none!important;color: #3366cc;}a:hover { text-decoration: none!important;  color: #2a4b8d;} a.new{ color: #BA0000!important;}'));" });
+                await webview1.InvokeScriptAsync("eval", new string[] { String.Format("var head = document.getElementsByTagName('head')[0];") });
+                await webview1.InvokeScriptAsync("eval", new string[] { String.Format("head.appendChild(style);") });
 
+            }
+            catch (Exception exc)
+            {
+            }
         }
         private async void webview1_NavigationCompleted(WebView sender, WebViewNavigationCompletedEventArgs args)
         {

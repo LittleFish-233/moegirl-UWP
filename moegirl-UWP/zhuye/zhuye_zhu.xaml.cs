@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -13,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using static System.Net.Mime.MediaTypeNames;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -143,6 +145,16 @@ namespace moegirl_UWP.zhuye
                         }
                         catch
                         { }
+                        try
+                        {
+                            await webview1.InvokeScriptAsync("eval", new string[] { "var style = document.createElement('style');style.type = 'text/css';style.appendChild(document.createTextNode('body {font-size: 108%;}a, a:visited {text-decoration: none!important;color: #3366cc;}a:hover { text-decoration: none!important;  color: #2a4b8d;} a.new{ color: #BA0000!important;}'));" });
+                            await webview1.InvokeScriptAsync("eval", new string[] { String.Format("var head = document.getElementsByTagName('head')[0];") });
+                            await webview1.InvokeScriptAsync("eval", new string[] { String.Format("head.appendChild(style);") });
+
+                        }
+                        catch (Exception exc)
+                        { 
+                        }
 
                         //全部执行完毕退出循环
                         shifou_xiugai = true;

@@ -16,6 +16,7 @@
                              IsBackButtonVisible="Collapsed"
                              PaneDisplayMode="LeftCompact"
                              RequestedTheme="Dark"
+                             
                              SelectionChanged="nvSample_SelectionChanged">
             <muxc:NavigationView.MenuItems>
                 <muxc:NavigationViewItem Content="大厅" Tag="dating" Foreground="White" IsSelected="True">

@@ -50,6 +50,19 @@
                        TextWrapping="Wrap" Margin="0,0,0,5"               
                        RelativePanel.Below="textblock8" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
 
+            <TextBlock x:Name="textblock10" Text="2021/09/18   版本：1.1.17" FontWeight="Bold" 
+                       x:Uid="/shiyong/textblock1"
+                       FontSize="18"
+                       RelativePanel.Below="textblock9"  Margin="0,20,0,10"/>
+            <TextBlock x:Name="textblock11" Text="1.修改默认主题，优化显示样式"
+                       x:Uid="/shiyong/textblock2"
+                       TextWrapping="Wrap" Margin="0,0,0,5"
+                       RelativePanel.Below="textblock10" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+            <TextBlock x:Name="textblock12" Text="2.修复在词条页面下无法导航到检索页面的bug"
+                       x:Uid="/shiyong/textblock3"
+                       TextWrapping="Wrap" Margin="0,0,0,5"               
+                       RelativePanel.Below="textblock11" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
+
         </RelativePanel>
     </ScrollViewer>
 

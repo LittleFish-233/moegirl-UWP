@@ -225,6 +225,8 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="tupian\7.png" />
+    <Content Include="tupian\8.png" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
